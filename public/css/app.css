@@ -1300,6 +1300,12 @@ select {
 .font-bold {
   font-weight: 700;
 }
+.font-light {
+  font-weight: 300;
+}
+.font-normal {
+  font-weight: 400;
+}
 .uppercase {
   text-transform: uppercase;
 }

@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="flex flex-col overflow-y-auto md:flex-row">
-        <div class="h-32 p-6 md:h-auto md:w-1/2">
+        <div class="hidden md:block h-32 p-6 md:h-auto md:w-1/2">
             <img aria-hidden="true" class="object-cover w-full h-full"
                  src="{{ asset('svg/login.svg') }}"
                  alt="Office"/>
@@ -14,7 +14,7 @@
                     <img src="{{ asset('svg/brand.svg') }}" alt="Bumil Sehat">
                 </div>
 
-                <p class="text-dark text-base mb-3">Masukkan email dan password untuk mengakses akun anda</p>
+                <p class="text-dark text-base mb-3 font-light">Masukkan email dan password untuk mengakses akun anda</p>
 
                 <x-auth-validation-errors :errors="$errors"/>
 
@@ -60,7 +60,7 @@
                     </div>
                 </form>
 
-                <p class="text-dark text-base mt-3">Belum mempunyai akun? <a class="text-secondary font-medium text-md" href="/register">Daftar</a> </p>
+                <p class="text-dark text-base mt-3 font-light">Belum mempunyai akun? <a class="text-secondary font-medium text-md" href="/register">Daftar</a> </p>
             </div>
         </div>
     </div>
