@@ -1,5 +1,5 @@
 <div class="w-full flex flex-col text-center px-2 md:px-44">
-  <h1 class=" text-user-header md:text-user-xl text-dark mb-3">{{ $title }}</h1>
+  <h1 class="text-user-header md:text-[45px] text-dark mb-3">{{ $title }}</h1>
   @if (isset($desc))
   <p class="text-user-base text-dark mb-3">{{ $desc }}</p>
   @endif
