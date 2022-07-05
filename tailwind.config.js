@@ -26,7 +26,9 @@ module.exports = {
             lg: ['20px', '28px'],
             xl: ['24px', '32px'],
             'user-lg': ['38px'],
-            'user-xl': ['56px', '72px']
+            'user-header': ['36px', '50px'],
+            'user-xl': ['56px', '72px'],
+            'user-base': ['18px', '32px']
           },
         colors: {
             transparent: 'transparent',

@@ -1,5 +1,5 @@
 @extends('layouts.user')
 
 @section('content')
-    <x-navbar-user></x-navbar-user>
+    <x-carousel></x-carousel>
 @endsection

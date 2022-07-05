@@ -16,8 +16,9 @@
 </head>
 <body>
 <div
-    class="flex bg-gray-50 w-full"
+    class="flex bg-gray-50 w-full flex-col"
 >
+    <x-navbar-user></x-navbar-user>
     @yield('content')
 
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
