@@ -4,6 +4,6 @@
   <p class="text-user-base text-dark mb-3">{{ $desc }}</p>
   @endif
   @if (isset($line))
-    <hr class="border-dark w-full md:w-3/4 mx-auto">
+    <hr class="border-dark w-full md:w-3/4 mx-auto mb-3">
   @endif
 </div>

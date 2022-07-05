@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,5 @@ Route::middleware('auth')->group(function () {
 Route::get('tentang', [AboutController::class, 'index'])->name('about.index');
 
 Route::get('kontak', [ContactController::class, 'index'])->name('contact.index');
+
+Route::get('materi', [ArticleController::class, 'index'])->name('articles.index');
