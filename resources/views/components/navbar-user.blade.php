@@ -43,7 +43,7 @@
         <a href="{{ route('home') }}" class="block text-base text-white bg-secondary font-normal py-3 md:text-secondary md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0" aria-current="page">Beranda</a>
       </li>
       <li>
-        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Pengingat Kehamilan</a>
+        <a href="{{ route('pregnancy.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Pengingat Kehamilan</a>
       </li>
       <li>
         <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Kuesioner</a>
