@@ -31,7 +31,7 @@
                                  name="name"
                                  class="block w-full"
                                  value="{{ old('name') }}"
-                                 required
+                                 
                                  placeholder="Masukkan nama lengkap anda"
                                  autofocus/>
                     </div>
@@ -51,7 +51,7 @@
                                  name="password"
                                  class="block w-full"
                                  placeholder="Masukkan password"
-                                 required/>
+                                 />
                     </div>
 
                     <div class="mt-4">
@@ -59,17 +59,19 @@
                         <x-input-user type="text"
                                  name="address"
                                  class="block w-full"
+                                 value="{{ old('address') }}"
                                  placeholder="Masukkan alamat"
-                                 required/>
+                                 />
                     </div>
 
                     <div class="mt-4">
                         <x-label-user for="puskesmas" :value="__('Puskesmas')"/>
                         <x-input-user type="text"
-                                 name="pueskesmas"
+                                 name="puskesmas"
                                  class="block w-full"
                                  placeholder="Masukkan puskesmas"
-                                 required/>
+                                 value="{{ old('puskesmas') }}"
+                                 />
                     </div>
 
                     {{-- <div class="mt-4">
@@ -78,7 +80,7 @@
                                  name="password_confirmation"
                                  class="block w-full"
                                  placeholder="Masukkan konfirmasi password"
-                                 required/>
+                                 />
                     </div> --}}
 
                     <div class="mt-4">
