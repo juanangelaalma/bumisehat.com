@@ -1607,6 +1607,10 @@ input[type="range"]::-ms-fill-lower {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-\[\#ffb991\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 185 145 / var(--tw-bg-opacity));
+}
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
 }
@@ -1762,10 +1766,6 @@ input[type="range"]::-ms-fill-lower {
 .text-xl {
   font-size: 24px;
   line-height: 32px;
-}
-.text-user-xs {
-  font-size: 12px;
-  line-height: 20px;
 }
 .text-user-base {
   font-size: 18px;
@@ -2141,10 +2141,6 @@ input[type="range"]::-ms-fill-lower {
 .dark .dark\:border-gray-700 {
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
-}
-.dark .dark\:border-gray-900 {
-  --tw-border-opacity: 1;
-  border-color: rgb(17 24 39 / var(--tw-border-opacity));
 }
 .dark .dark\:bg-gray-900 {
   --tw-bg-opacity: 1;

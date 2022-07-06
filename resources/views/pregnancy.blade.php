@@ -13,7 +13,7 @@
                 <ol class="relative px-6 border-l border-gray-200 dark:border-gray-700">
                     <li class="mb-10 ml-4 space-y-3">
                         <div
-                            class="absolute w-[55px] h-[55px] flex justify-center items-center bg-gray-200 rounded-full -left-7 border border-white dark:border-gray-900 dark:bg-gray-700">
+                            class="absolute w-[55px] h-[55px] flex justify-center items-center bg-[#ffb991] rounded-full -left-7 border border-white">
                             <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path

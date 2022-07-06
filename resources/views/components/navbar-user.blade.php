@@ -1,5 +1,5 @@
 
-<nav class="bg-primary-index w-full px-2 py-4 md:px-24 sm:px-7">
+<nav class="bg-primary-index w-full px-2 py-4 md:px-24 sm:px-7 transition-all">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="https://flowbite.com/" class="flex items-center">
       <img src="{{ asset('svg/brand.svg') }}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">

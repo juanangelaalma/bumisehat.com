@@ -39,6 +39,10 @@ Route::get('tentang', [AboutController::class, 'index'])->name('about.index');
 
 Route::get('kontak', [ContactController::class, 'index'])->name('contact.index');
 
-Route::get('materi', [ArticleController::class, 'index'])->name('articles.index');
+
+Route::prefix('materi')->group(function() {
+    Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
+    Route::get('/{slug}', [ArticleController::class, 'read'])->name('articles.read');
+});
 
 Route::get('pengingat-kehamilan', [PregnancyController::class, 'index'])->name('pregnancy.index');

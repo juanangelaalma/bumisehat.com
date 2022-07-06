@@ -31,7 +31,7 @@
         </div>
         <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20" data-carousel-item="">
             <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-            <img src="https://awsimages.detik.net.id/community/media/visual/2021/11/08/ilustrasi-ibu-hamil_169.jpeg?w=700&q=90" class="block absolute object-cover top-1/2 left-1/2 h-full md:min-h-full md:w-full lg:h-auto lg:w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+            <img src="https://media.istockphoto.com/photos/portrait-of-young-happy-pregnant-woman-standing-by-the-window-picture-id1197692604?b=1&k=20&m=1197692604&s=170667a&w=0&h=ffs7yu6ZmMY4_OBoHA4BQ26-bPmtD_-v65lWhgwa-3A=" class="block absolute object-cover top-1/2 left-1/2 h-full md:min-h-full md:w-full lg:h-auto lg:w-full -translate-x-1/2 -translate-y-1/2" alt="...">
             <div class="absolute w-full h-full md:w-4/5 lg:3/5 flex justify-center flex-col px-2 md:px-24 text-white">
                 <h1 class="text-user-header mb-4 font-semibold">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, beatae.</h1>
                 <p class="text-base-user mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, placeat animi? Praesentium numquam iure architecto exercitationem magnam amet unde officiis!</p>
