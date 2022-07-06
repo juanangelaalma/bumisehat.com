@@ -1,14 +1,21 @@
 
 <nav class="bg-primary-index w-full px-2 py-4 md:px-24 sm:px-7 transition-all">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
-  <a href="https://flowbite.com/" class="flex items-center">
+  <a href="/" class="flex items-center">
       <img src="{{ asset('svg/brand.svg') }}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
   </a>
   <div class="flex items-center md:order-2">
+      @auth
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-secondary" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
         <span class="sr-only">Open user menu</span>
         <img class="w-8 h-8 rounded-full" src="https://i.pinimg.com/474x/76/94/84/769484dafbe89bf2b8a22379658956c4.jpg" alt="user photo">
       </button>
+          @else
+          <div class="flex flex-row mr-2 md:mr-0">
+            <a href="{{ route('register') }}" class="bg-transparent px-4 py-2 mx-2 rounded-lg text-white hover:text-secondary transition-colors duration-300 font-semibold">Daftar</a>
+            <a href="{{ route('login') }}" class="bg-secondary px-8 py-2 rounded-lg text-white font-md hover:bg-secondary-dark transition-colors duration-500  shadow-lg">Masuk</a>
+          </div>
+      @endauth
       <!-- Dropdown menu -->
       <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow" id="dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(956px, 1135px);">
         <div class="py-3 px-4">
@@ -37,25 +44,27 @@
         </svg>        
     </button>
   </div>
-  <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+  <div class="hidden justify-between md:ml-auto md:mr-8 items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
     <ul class="flex flex-col mt-4 pb-4 md:pb-0 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
       <li>
         <a href="{{ route('home') }}" class="block text-base text-white bg-secondary font-normal py-3 md:text-secondary md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0" aria-current="page">Beranda</a>
       </li>
+      @auth
       <li>
-        <a href="{{ route('pregnancy.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Pengingat Kehamilan</a>
+        <a href="{{ route('pregnancy.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Pengingat Kehamilan</a>
       </li>
       <li>
-        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Kuesioner</a>
+        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Kuesioner</a>
       </li>
       <li>
-        <a href="{{ route('articles.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Materi</a>
+        <a href="{{ route('articles.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Materi</a>
+      </li>
+      @endauth
+      <li>
+        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Tentang</a>
       </li>
       <li>
-        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Tentang</a>
-      </li>
-      <li>
-        <a href="{{ route('contact.index') }}" class="block text-base text-white border-b border-gray-50 font-light py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Hubungi Kami</a>
+        <a href="{{ route('contact.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Hubungi Kami</a>
       </li>
     </ul>
   </div>

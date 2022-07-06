@@ -5,7 +5,7 @@
     <div class="py-10">
         <x-title-section title="SELAMAT DATANG DI BUMIL SEHAT" desc="kami menawarkan beberapa fitur yang bisa anda gunakan" line={{ true }}></x-title-section>
     <div class="px-4 py-10 md:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem]">
+        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem] shadow-lg">
             <div class="flex flex-col items-center"> 
                 <div class="mb-4">
                     <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@
             </div>
         
         </div>
-        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem]">
+        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem] shadow-lg">
             <div class="flex flex-col items-center"> 
                 <div class="mb-4">
                     <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@
             </div>
         
         </div>
-        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem]">
+        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem] shadow-lg">
             <div class="flex flex-col items-center"> 
                 <div class="mb-4">
                     <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@
             </div>
         
         </div>
-        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem]">
+        <div class="flex items-center w-full bg-white px-4 py-10 h-[25rem] md:h-[20rem] shadow-lg">
             <div class="flex flex-col items-center"> 
                 <div class="mb-4">
                     <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
