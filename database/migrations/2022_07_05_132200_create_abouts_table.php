@@ -15,6 +15,9 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->text('body');
+            $table->string('email');
+            $table->string('whatsapp');
             $table->timestamps();
         });
     }

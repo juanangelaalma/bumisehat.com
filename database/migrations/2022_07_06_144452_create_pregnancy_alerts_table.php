@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePregnanciesTable extends Migration
+class CreatePregnancyAlertsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreatePregnanciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pregnancies', function (Blueprint $table) {
+        Schema::create('pregnancy_alerts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->integer('weeks');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreatePregnanciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pregnancies');
+        Schema::dropIfExists('pregnancy_alerts');
     }
 }
