@@ -41,7 +41,7 @@ Route::get('kontak', [AboutController::class, 'contact'])->name('contact.index')
 
 Route::prefix('materi')->group(function() {
     Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
-    Route::get('/{slug}', [ArticleController::class, 'read'])->name('articles.read');
+    Route::get('/{article:slug}', [ArticleController::class, 'read'])->name('articles.read');
 });
 
 Route::get('pengingat-kehamilan', [PregnancyAlertController::class, 'index'])->name('pregnancy.index');
