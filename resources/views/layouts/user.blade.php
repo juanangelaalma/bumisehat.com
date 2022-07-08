@@ -16,9 +16,16 @@
 </head>
 <body>
 <div
-    class="flex bg-gray-50 w-full flex-col"
+    class="flex bg-white w-full flex-col"
 >
     <x-navbar-user></x-navbar-user>
+    @isset($successAlert)
+        <x-alert-success header="Sukses" message="{{ $successAlert }}"></x-alert-success>
+    @endisset
+    @isset($errorAlert)
+        <x-alert-fail header="Failed" message="{{ $errorAlert }}"></x-alert-fail>
+    @endisset
+    
     @yield('content')
 
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>

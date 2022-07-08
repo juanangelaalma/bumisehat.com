@@ -45,3 +45,5 @@ Route::prefix('materi')->group(function() {
 });
 
 Route::get('pengingat-kehamilan', [PregnancyAlertController::class, 'index'])->name('pregnancy.index');
+
+Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
