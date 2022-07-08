@@ -55,4 +55,7 @@ class User extends Authenticatable
     public function age_pregnancy() {
         return $this->hasOne(AgePregnancy::class);
     }
+    public function isAlreadyFilledOutQuiz() {
+        return $this->answers()->where('type', 'quiz')->count() ? true : false;
+    }
 }

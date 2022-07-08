@@ -18,13 +18,13 @@
 <div
     class="flex bg-white w-full flex-col"
 >
-    <x-navbar-user></x-navbar-user>
-    @isset($successAlert)
-        <x-alert-success header="Sukses" message="{{ $successAlert }}"></x-alert-success>
-    @endisset
-    @isset($errorAlert)
-        <x-alert-fail header="Failed" message="{{ $errorAlert }}"></x-alert-fail>
-    @endisset
+    <x-navbar-user active="{{ $active }}"></x-navbar-user>
+    @if(session('successAlert'))
+        <x-alert-success header="Sukses" message="{{ session('successAlert') }}"></x-alert-success>
+    @endif
+    @if(session('errorAlert'))
+        <x-alert-fail header="Failed" message="{{ session('errorAlert') }}"></x-alert-fail>
+    @endif
     
     @yield('content')
 

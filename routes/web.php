@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PregnancyAlertController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,7 @@ Route::get('tentang', [AboutController::class, 'about'])->name('about.index');
 Route::get('kontak', [AboutController::class, 'contact'])->name('contact.index');
 
 
-Route::prefix('materi')->group(function() {
+Route::prefix('materi')->middleware('filledout.quiz')->group(function() {
     Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
     Route::get('/{article:slug}', [ArticleController::class, 'read'])->name('articles.read');
 });
@@ -47,3 +48,11 @@ Route::prefix('materi')->group(function() {
 Route::get('pengingat-kehamilan', [PregnancyAlertController::class, 'index'])->name('pregnancy.index');
 
 Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
+
+Route::prefix('evaluasi')->group(function() {
+    Route::get('/', [QuestionController::class, 'evaluation'])->name('evaluation.index');
+});
+
+Route::prefix('quiz')->group(function() {
+    Route::get('/', [QuestionController::class, 'quiz'])->name('quiz.index');
+});

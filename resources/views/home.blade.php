@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.user', ['active' => 'home'])
 
 @section('content')
     <x-carousel></x-carousel>

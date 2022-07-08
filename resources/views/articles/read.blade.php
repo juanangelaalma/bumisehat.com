@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.user', ['active' => 'articles'])
 
 @section('content')
 @php

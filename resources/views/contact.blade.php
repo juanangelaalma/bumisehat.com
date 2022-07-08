@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.user', ['active' => 'contact'])
 
 @section('content')
     <div class="bg-white py-14">

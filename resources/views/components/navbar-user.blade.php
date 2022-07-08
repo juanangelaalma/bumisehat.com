@@ -47,24 +47,27 @@
   <div class="hidden justify-between md:ml-auto md:mr-8 items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
     <ul class="flex flex-col mt-4 pb-4 md:pb-0 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
       <li>
-        <a href="{{ route('home') }}" class="block text-base text-white bg-secondary font-normal py-3 md:text-secondary md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0" aria-current="page">Beranda</a>
+        <a href="{{ route('home') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'home' ? ' md:text-secondary bg-secondary' : ''}}" aria-current="page">Beranda</a>
       </li>
       @auth
       <li>
-        <a href="{{ route('pregnancy.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Pengingat Kehamilan</a>
+        <a href="{{ route('pregnancy.index') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'pregnancy' ? ' md:text-secondary bg-secondary' : ''}}">Pengingat Kehamilan</a>
       </li>
       <li>
-        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Kuesioner</a>
+        <a href="{{ route('quiz.index') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'quiz' ? ' md:text-secondary bg-secondary' : ''}}">Quiz</a>
       </li>
       <li>
-        <a href="{{ route('articles.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Materi</a>
+        <a href="{{ route('evaluation.index') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'evaluation' ? ' md:text-secondary bg-secondary' : ''}}">Evaluasi</a>
+      </li>
+      <li>
+        <a href="{{ route('articles.index') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'articles' ? ' md:text-secondary bg-secondary' : ''}}">Materi</a>
       </li>
       @endauth
       <li>
-        <a href="{{ route('about.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Tentang</a>
+        <a href="{{ route('about.index') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'about' ? ' md:text-secondary bg-secondary' : ''}}">Tentang</a>
       </li>
       <li>
-        <a href="{{ route('contact.index') }}" class="block text-base text-white border-b border-gray-50 font-normal py-3 transition-colors duration-500 md:hover:text-secondary md:border-none md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0">Hubungi Kami</a>
+        <a href="{{ route('contact.index') }}" class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{$active == 'contact' ? ' md:text-secondary bg-secondary' : ''}}">Hubungi Kami</a>
       </li>
     </ul>
   </div>
