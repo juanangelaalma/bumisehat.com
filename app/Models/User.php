@@ -43,4 +43,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pregnancy_statuses () {
+        return $this->hasMany(PregnancyStatus::class);
+    } 
+
+    public function answers() {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function age_pregnancy() {
+        return $this->hasOne(AgePregnancy::class);
+    }
 }
