@@ -51,6 +51,7 @@ Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
 
 Route::prefix('evaluasi')->group(function() {
     Route::get('/', [QuestionController::class, 'evaluation'])->name('evaluation.index');
+    Route::post('/submit', [QuestionController::class, 'evaluation_submit'])->name('evaluation.submit');
 });
 
 Route::prefix('quiz')->group(function() {
