@@ -55,4 +55,5 @@ Route::prefix('evaluasi')->group(function() {
 
 Route::prefix('quiz')->group(function() {
     Route::get('/', [QuestionController::class, 'quiz'])->name('quiz.index');
+    Route::post('/submit', [QuestionController::class, 'quiz_submit'])->name('quiz.submit');
 });

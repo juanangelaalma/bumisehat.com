@@ -9,7 +9,7 @@
         </x-title-header-user>
 
 
-        <div class="px-2 md:px-24 py-5 flex flex-col">
+        <div class="px-3 md:px-24 py-5 flex flex-col">
             <x-pregnancy-progress age="{{ $age }}"></x-pregnancy-progress>
             <div class="ml-7 mr-2 mt-4 md:px-16">
                 <ol class="relative px-6 border-l border-gray-200 dark:border-gray-700">
