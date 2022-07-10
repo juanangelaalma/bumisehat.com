@@ -11,9 +11,11 @@ class PregnancyProgress extends Component
      *
      * @return void
      */
-    public function __construct()
+    
+    public int $age = 0;
+    public function __construct($age)
     {
-        //
+        $this->age = intval($age);
     }
 
     /**

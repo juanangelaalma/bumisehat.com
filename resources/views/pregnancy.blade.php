@@ -1,16 +1,19 @@
 @extends('layouts.user', ['active' => 'pregnancy'])
 
 @section('content')
-    <div class="bg-white py-14">
-        <x-title-header-user title="Pengingat Kehamilan" line={{ true }}
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ipsa molestiae in quia, ad distinctio ipsam enim nisi sapiente architecto.">
+    <div class="bg-white py-14 relative">
+        <x-title-header-user title="Pengingat Kehamilan" 
+        {{-- line={{ true }} --}}
+            {{-- desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ipsa molestiae in quia, ad distinctio ipsam enim nisi sapiente architecto." --}}
+            >
         </x-title-header-user>
 
 
         <div class="px-2 md:px-24 py-5 flex flex-col">
-            <x-pregnancy-progress></x-pregnancy-progress>
+            <x-pregnancy-progress age="{{ $age }}"></x-pregnancy-progress>
             <div class="ml-7 mr-2 mt-4 md:px-16">
                 <ol class="relative px-6 border-l border-gray-200 dark:border-gray-700">
+                    @foreach ($pregnancy_alerts as $item)
                     <li class="mb-10 ml-4 space-y-3">
                         <div
                             class="absolute w-[55px] h-[55px] flex justify-center items-center bg-[#ffb991] rounded-full -left-7 border border-white">
@@ -22,15 +25,35 @@
                             </svg>
 
                         </div>
-                        <time class="mb-1 text-base font-normal text-dark-gray">Minggu 1</time>
-                        <h3 class="text-[30px] leading-10 md:text-user-md font-semibold text-dark">Application UI code in Tailwind CSS</h3>
-                        <p class="mb-4 text-base font-normal text-dark-gray">Get access to over 20+ pages including a
-                            dashboard layout, charts, kanban board, calendar, and pre-order E-commerce &amp; Marketing
-                            pages. <a href="" class="text-primary-index font-semibold">Selengkapnya</a> </p>
+                        <time class="mb-1 text-base font-normal text-dark-gray">Minggu {{ $item->weeks }}</time>
+                        <h3 class="text-[30px] leading-10 md:text-user-md font-semibold text-dark">{{ $item->title }}</h3>
+                        <p class="mb-4 text-base font-normal text-dark-gray">{{ strip_tags(substr($item->content, 0, 250), null) }} ...<a href="" class="text-primary-index font-semibold">Selengkapnya</a> </p>
                     </li>
+                    @endforeach
                 </ol>
             </div>
         </div>
 
+        @if ($age == NULL)
+        <div id="authentication-modal" tabindex="-1" class="overflow-y-auto overflow-x-hidden absolute top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex bg-white backdrop-blur-sm bg-opacity-50" aria-modal="true" role="dialog">
+            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white mt-32 md:mt-0 rounded-lg shadow dark:bg-gray-700">
+                    <div class="py-8 px-6 lg:px-8">
+                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Berapa umur kehamilan anda?</h3>
+                        <form class="space-y-6" action="#">
+                            <div>
+                                <div class="flex flex-row nowrap items-center space-x-4">
+                                    <x-input-user type="number" class="w-full"></x-input-user>
+                                    <span class="text-md text-dark">Minggu</span>
+                                </div>
+                            </div>
+                            <x-button-user class="w-full">Simpan</x-button-user>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 @endsection

@@ -45,7 +45,7 @@ Route::prefix('materi')->middleware('filledout.quiz')->group(function() {
     Route::get('/{article:slug}', [ArticleController::class, 'read'])->name('articles.read');
 });
 
-Route::get('pengingat-kehamilan', [PregnancyAlertController::class, 'index'])->name('pregnancy.index');
+Route::get('pengingat-kehamilan', [PregnancyAlertController::class, 'index'])->name('pregnancy.index')->middleware(['auth']);
 
 Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
 

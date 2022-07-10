@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin'  => \App\Http\Middleware\AdminAuthenticated::class,
         'filledout.quiz' => \App\Http\Middleware\ArticleMiddleware::class,
+        'pregnancy' => \App\Http\Middleware\PregnancyMiddleware::class,
     ];
 }
