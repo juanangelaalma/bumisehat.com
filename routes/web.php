@@ -77,7 +77,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
 
     Route::get('pregnancy', [AdminPregnancyAlertController::class, 'index'])->name('admin.pregnancy_alerts');
 
-    Route::get('articles', [AdminArticleController::class, 'index'])->name('admin.articles');
+    
+    Route::prefix('articles')->group(function() {
+        Route::get('/', [AdminArticleController::class, 'index'])->name('admin.articles');
+        Route::get('/create', [AdminArticleController::class, 'create'])->name('admin.articles.create');
+        Route::post('/store', [AdminArticleController::class, 'store'])->name('admin.articles.store');
+    });
 
     Route::get('quiz', [AdminQuestionController::class, 'quiz'])->name('admin.quiz');
 
@@ -90,3 +95,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
     Route::get('contact', [AdminAboutController::class, 'contact'])->name('admin.contact');
 });
 
+Route::post('upload', [AdminArticleController::class, 'upload']);
