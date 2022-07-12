@@ -1,8 +1,8 @@
 <header class="z-10 py-4 bg-white shadow-md">
-    <div class="container flex justify-between items-center px-6 mx-auto h-full text-purple-600 md:justify-end">
+    <div class="container flex justify-between items-center px-6 mx-auto h-full text-primary-index md:justify-end">
         <!-- Mobile hamburger -->
         <button
-            class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+            class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-primary-index"
             @click="toggleSideMenu"
             aria-label="Menu"
         >
@@ -23,7 +23,7 @@
         <x-dropdown>
             <x-slot name="trigger">
                 <button
-                    class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
+                    class="align-middle rounded-full focus:shadow-outline-primary-index focus:outline-none"
                     @click="toggleProfileMenu"
                     @keydown.escape="closeProfileMenu"
                     aria-label="Account"
@@ -34,7 +34,7 @@
             </x-slot>
 
             <x-slot name="content">
-                <x-dropdown-link href="{{ route('profile.show') }}">
+                <x-dropdown-link href="{{ route('admin.dashboard') }}">
                     <x-slot name="icon">
                         <svg class="mr-3 w-4 h-4" aria-hidden="true" fill="none" stroke-linecap="round"
                              stroke-linejoin="round"

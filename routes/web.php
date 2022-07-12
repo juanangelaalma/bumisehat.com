@@ -1,6 +1,12 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\admin\AboutController as AdminAboutController;
+use App\Http\Controllers\admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\PregnancyAlertController as AdminPregnancyAlertController;
+use App\Http\Controllers\admin\QuestionController as AdminQuestionController;
+use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PregnancyAlertController;
@@ -21,20 +27,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('admin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('admin.dashboard')->middleware('admin');
+// Route::get('admin/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('admin.dashboard')->middleware('admin');
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->group(function () {
-    Route::view('about', 'about')->name('about');
+// Route::middleware('auth')->group(function () {
+//     Route::view('about', 'about')->name('about');
 
-    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+//     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
-    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-});
+//     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
+//     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+// });
 
 Route::get('tentang', [AboutController::class, 'about'])->name('about.index');
 
@@ -65,3 +71,22 @@ Route::prefix('quiz')->group(function() {
 });
 
 Route::post('/pregnancy_start/submit', [UserController::class, 'setPregnancyStart'])->name('pregnancy_start.submit');
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('pregnancy', [AdminPregnancyAlertController::class, 'index'])->name('admin.pregnancy_alerts');
+
+    Route::get('articles', [AdminArticleController::class, 'index'])->name('admin.articles');
+
+    Route::get('quiz', [AdminQuestionController::class, 'quiz'])->name('admin.quiz');
+
+    Route::get('evaluation', [AdminQuestionController::class, 'evaluation'])->name('admin.evaluation');
+
+    Route::get('users', [AdminUserController::class, 'index'])->name('admin.user');
+
+    Route::get('about', [AdminAboutController::class, 'about'])->name('admin.about');
+
+    Route::get('contact', [AdminAboutController::class, 'contact'])->name('admin.contact');
+});
+
