@@ -82,6 +82,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
         Route::get('/', [AdminArticleController::class, 'index'])->name('admin.articles');
         Route::get('/create', [AdminArticleController::class, 'create'])->name('admin.articles.create');
         Route::post('/store', [AdminArticleController::class, 'store'])->name('admin.articles.store');
+        Route::get('/{article:slug}/destroy', [AdminArticleController::class, 'destroy'])->name('admin.articles.destroy');
     });
 
     Route::get('quiz', [AdminQuestionController::class, 'quiz'])->name('admin.quiz');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -42,11 +43,15 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles')->with('successAlert', 'Mater berhasil ditambahkan');
     }
 
-
-
     public function upload(Request $request) {
         $fileName = $request->file('file')->getClientOriginalName();
         $path = $request->file('file')->storeAs('/uploads/articles/body/', $fileName, 'public');
         return response()->json(['location' => "/storage/$path"]);
+    }
+    
+    public function destroy(Article $article) {
+        Storage::delete('/uploads/articles/thumbnails/' . $article->image);
+        $article->delete();  
+        return back();
     }
 }
