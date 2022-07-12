@@ -1306,6 +1306,10 @@ input:checked + .toggle-bg {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -2935,6 +2939,16 @@ input:checked + .toggle-bg {
     order: 1;
   }
 
+  .md\:my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .md\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .md\:mr-0 {
     margin-right: 0px;
   }
@@ -2961,6 +2975,10 @@ input:checked + .toggle-bg {
 
   .md\:mt-2 {
     margin-top: 0.5rem;
+  }
+
+  .md\:mb-2 {
+    margin-bottom: 0.5rem;
   }
 
   .md\:block {
