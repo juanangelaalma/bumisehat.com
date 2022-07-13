@@ -93,7 +93,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
 
     Route::get('users', [AdminUserController::class, 'index'])->name('admin.user');
 
-    Route::get('about', [AdminAboutController::class, 'about'])->name('admin.about');
+    
+    Route::prefix('about')->group(function() {
+        Route::get('/', [AdminAboutController::class, 'about'])->name('admin.about');
+        Route::put('/update', [AdminAboutController::class, 'update'])->name('admin.about.update');
+    }); 
 
     Route::get('contact', [AdminAboutController::class, 'contact'])->name('admin.contact');
 });

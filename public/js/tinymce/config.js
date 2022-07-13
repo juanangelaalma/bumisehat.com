@@ -21,10 +21,10 @@ tinymce.init({
         "wordcount",
     ],
     toolbar:
-        "undo redo | blocks | link image" +
+        " link image | blocks | removeformat | code" +
+        "undo redo | help " +
         "bold italic backcolor | alignleft aligncenter " +
-        "alignright alignjustify | bullist numlist outdent indent | " +
-        "removeformat | help | undo redo | link image | code",
+        "alignright alignjustify | bullist numlist outdent indent | " ,
     content_style:
         "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
     image_file_types: "jpg,webp,png,jpeg",
