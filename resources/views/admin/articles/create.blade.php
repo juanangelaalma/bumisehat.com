@@ -31,7 +31,7 @@
                             Gambar
                         </span>
                         <input name="image" type="file" />
-                        @error('title')
+                        @error('image')
                             <span class="text-xs text-red-600 dark:text-red-400">
                                 {{ $message }}
                             </span>
@@ -43,7 +43,7 @@
                             Body
                         </span>
                         <textarea class="form-control" name="body" id="body">{{ old('body') }}</textarea>
-                        @error('title')
+                        @error('body')
                             <span class="text-xs text-red-600 dark:text-red-400">
                                 {{ $message }}
                             </span>

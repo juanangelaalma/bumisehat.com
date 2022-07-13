@@ -43,6 +43,49 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles')->with('successAlert', 'Mater berhasil ditambahkan');
     }
 
+    public function edit(Article $article) {
+        return view('admin.articles.edit', [
+            'article'  => $article
+        ]);
+    }
+
+    public function update(Request $request, Article $article) {
+        $request->validate([
+            'title'  => 'required',
+            'body'   => 'required'
+        ]);
+
+        $slug = $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
+
+        if($request->file('image')) {
+            $request->validate([
+                'image'  => 'required|mimes:png,jpg,jpeg,webp|max:2048',
+            ]);
+
+            Storage::delete('/uploads/articles/thumbnails/' . $article->image);
+
+            $fileName = $slug . "." . $request->file('image')->extension();
+            $request->file('image')->storeAs('/uploads/articles/thumbnails/', $fileName, 'public');
+
+            $article->update([
+                'title'  => $request->title,
+                'body'   => $request->body,
+                'image'  => $fileName,
+                'slug'   => $slug
+            ]);
+        }
+
+        $article->update([
+            'title'     => $request->title,
+            'body'      => $request->body,
+            'slug'      => $slug
+        ]);
+
+        return redirect()->route('admin.articles');
+
+        dd($request->all());
+    }
+
     public function upload(Request $request) {
         $fileName = $request->file('file')->getClientOriginalName();
         $path = $request->file('file')->storeAs('/uploads/articles/body/', $fileName, 'public');
