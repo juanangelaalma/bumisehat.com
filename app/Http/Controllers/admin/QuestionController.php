@@ -45,17 +45,36 @@ class QuestionController extends Controller
         $true_point = $this->getTotalPoint($true_answer);
         $false_point = $this->getTotalPoint($false_answer);
 
-        return view('admin.questions.quiz.show_answers', [
+        return view('admin.questions.show_answers', [
             'user' => $user,
             'answers' => $answers->get(),
             'true_answer' => count($true_answer),
             'false_answer' => count($false_answer),
             'true_point'  => $true_point,
             'total_point'  => $true_point + $false_point,
+            'title'        => 'Quiz'
         ]);
     }
 
-    public function evaluation_show() {
-        return view('admin.questions.evaluation.show_answers');
+    public function evaluation_show($user_id) {
+        $user = User::find($user_id)->first();
+        $answers = Answer::where('user_id', $user_id)->where('type', 'evaluation');
+        
+        $true_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id = questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user_id AND answers.type = 'evaluation'");
+        $false_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id != questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user_id AND answers.type = 'evaluation'");
+
+        $true_point = $this->getTotalPoint($true_answer);
+        $false_point = $this->getTotalPoint($false_answer);
+
+        return view('admin.questions.show_answers', [
+            'user' => $user,
+            'answers' => $answers->get(),
+            'true_answer' => count($true_answer),
+            'false_answer' => count($false_answer),
+            'true_point'  => $true_point,
+            'total_point'  => $true_point + $false_point,
+            'title'        => 'Evaluasi'
+        ]);
     }
+
 }

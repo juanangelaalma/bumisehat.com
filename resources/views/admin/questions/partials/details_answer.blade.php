@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between nowrap w-full">
-            {{ __('Jawaban Quiz') }}
+            {{ __("Jawaban $title") }}
         </div>
     </x-slot>
     <div class="container grid">
