@@ -2,10 +2,7 @@
 
 @section('content')
     <div class="bg-white py-14 h-screen relative">
-        <x-title-header-user title="Pengingat Kehamilan" 
-        {{-- line={{ true }} --}}
-            {{-- desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ipsa molestiae in quia, ad distinctio ipsam enim nisi sapiente architecto." --}}
-            >
+        <x-title-header-user title="Pengingat Kehamilan">
         </x-title-header-user>
 
 

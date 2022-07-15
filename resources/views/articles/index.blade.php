@@ -7,11 +7,11 @@
     <div class="w-full grid grid-cols-1 gap-6 md:grid-cols-2">
       @foreach ($articles as $article)
       <div class="flex flex-col space-y-3">
-        <div class="w-full h-[250px] lg:h-[350px] overflow-hidden">
+        <div class="w-full h-[250px] lg:h-[350px] overflow-hidden rounded-lg">
           <img class="w-full h-full object-cover object-center" src="{{ asset("storage/uploads/articles/thumbnails/$article->image") }}" alt="">
         </div>
-        <h1 class="text-dark text-[20px]">{{ $article->title }}</h1>
-        <p class="text-dark-gray text-base">{{ strip_tags(substr($article->body, 0, 130), null) }} ...<a href="{{ route('articles.read', $article->slug) }}" class="text-primary-index font-semibold">Selengkapnya</a></p>
+        <h1 class="text-dark font-semibold text-[20px]">{{ $article->title }}</h1>
+        <p class="text-dark text-base">{{ strip_tags(substr($article->body, 0, 130), null) }} ...<a href="{{ route('articles.read', $article->slug) }}" class="text-primary-index font-semibold">Selengkapnya</a></p>
       </div>
       @endforeach
     </div>

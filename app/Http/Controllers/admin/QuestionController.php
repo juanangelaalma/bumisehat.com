@@ -37,7 +37,7 @@ class QuestionController extends Controller
 
     public function quiz_show($user_id) {
         $user = User::find($user_id)->first();
-        $answers = Answer::where('user_id', $user_id)->where('type', 'quiz');
+        $answers = Answer::where('user_id', $user_id)->where('type', 'quiz')->with('question', 'offered_answer');
         
         $true_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id = questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user_id AND answers.type = 'quiz'");
         $false_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id != questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user_id AND answers.type = 'quiz'");

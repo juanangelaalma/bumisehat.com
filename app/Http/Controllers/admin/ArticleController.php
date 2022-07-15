@@ -55,7 +55,10 @@ class ArticleController extends Controller
             'body'   => 'required'
         ]);
 
-        $slug = $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
+        $slug = $article->slug;
+        if($request->title !== $article->title) {
+            $slug = $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
+        }
 
         if($request->file('image')) {
             $request->validate([

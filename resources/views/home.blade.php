@@ -17,7 +17,7 @@
                 </div>
         
                 <h4 class="mb-4 text-xl md:text-lg text-dark font-bold">Quiz</h4>
-                <p class="text-center text-lg text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
+                <p class="text-center text-base text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
             </div>
         
         </a>
@@ -33,7 +33,7 @@
                 </div>
         
                 <h4 class="mb-4 text-xl md:text-lg text-dark font-bold">Pengingat kehamilan</h4>
-                <p class="text-center text-lg text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
+                <p class="text-center text-base text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
             </div>
         
         </a>
@@ -49,7 +49,7 @@
                 </div>
         
                 <h4 class="mb-4 text-xl md:text-lg text-dark font-bold">Materi</h4>
-                <p class="text-center text-lg text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
+                <p class="text-center text-base text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
             </div>
         
         </a>
@@ -65,7 +65,7 @@
                 </div>
         
                 <h4 class="mb-4 text-xl md:text-lg text-dark font-bold">Evaluasi</h4>
-                <p class="text-center text-lg text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
+                <p class="text-center text-base text-dark md:text-base font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur sapiente ratione vel itaque fugiat.</p>
             </div>
         
         </a>

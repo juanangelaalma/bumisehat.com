@@ -1,6 +1,6 @@
 <div class="md:px-10 flex flex-row space-x-1 md:space-x-6 shadow-md px-3 py-4 rounded-lg border border-gray-100">
     <div class="flex flex-col justify-start items-center">
-        <span class="text-user-sm md:text-lg text-dark">Minggu</span>
+        <span class="text-user-sm md:text-base text-dark">Minggu</span>
         <h6 class="text-dark font-bold text-lg md:text-user-md">{{ $age }}</h6>
     </div>
 
@@ -11,9 +11,9 @@
     </div>
 
     <div class="flex flex-col justify-center items-center">
-        <span class="text-user-sm md:text-lg text-dark">Sisa</span>
+        <span class="text-user-sm md:text-base text-dark">Sisa</span>
         <h6 class="text-dark font-bold text-lg md:text-user-md">{{ 42 - $age }}</h6>
-        <span class="text-user-sm md:text-lg text-dark">Minggu</span>
+        <span class="text-user-sm md:text-base text-dark">Minggu</span>
     </div>
 
 </div>
