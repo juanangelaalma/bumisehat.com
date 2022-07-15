@@ -87,9 +87,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
         Route::get('/{article:slug}/destroy', [AdminArticleController::class, 'destroy'])->name('admin.articles.destroy');
     });
 
-    Route::get('quiz', [AdminQuestionController::class, 'quiz'])->name('admin.quiz');
-
-    Route::get('evaluation', [AdminQuestionController::class, 'evaluation'])->name('admin.evaluation');
+    Route::prefix('questions')->group(function() {
+        Route::prefix('quiz')->group(function() {
+            Route::get('/', [AdminQuestionController::class, 'quiz'])->name('admin.quiz');
+            Route::get('/show/{id}', [AdminQuestionController::class, 'quiz_show'])->name('admin.quiz.show');
+        });
+        
+        Route::prefix('evaluation')->group(function() {
+            Route::get('/', [AdminQuestionController::class, 'evaluation'])->name('admin.evaluation');
+            Route::get('/show/{user_id}', [AdminQuestionController::class, 'evaluation_show'])->name('admin.evaluation.show');
+        });
+    });
 
     Route::get('users', [AdminUserController::class, 'index'])->name('admin.user');
 

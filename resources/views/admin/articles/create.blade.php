@@ -9,7 +9,7 @@
             <div class="w-full overflow-x-auto">
                 <!-- Invalid input -->
                 <form
-                    class="flex flex-wrap items-end md:grid-cols-2 px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-2"
+                    class="flex flex-wrap items-end md:grid-cols-2 px-4 py-3 mb-8 bg-white rounded-lg shadow-md space-y-2"
                     action="{{ route('admin.articles.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <label class="block text-sm w-full md:w-1/2 pr-2">
