@@ -38,3 +38,14 @@ function get_alert_in_statuses($pregnancy_alert_id, $statuses) {
   }
   return NULL;
 }
+
+function get_alert_by_weeks($alerts, $weeks) {
+  $new_array = [];
+  foreach ($alerts as $alert) {
+      if($alert["weeks"] == $weeks) {
+          array_push($new_array, $alert);
+      }
+  }
+
+  return $new_array;
+}

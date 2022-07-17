@@ -58,7 +58,7 @@ class User extends Authenticatable
     }
 
     public function pregnancy_alerts() {
-        return $this->belongsToThrough(PregnancyAlert::class, PregnancyStatus::class);
+        return $this->belongsToManyThrough(PregnancyAlert::class, PregnancyStatus::class);
     }
 
     public function isAlreadyFilledOutQuiz() {
@@ -71,5 +71,9 @@ class User extends Authenticatable
 
     public function isAdmin() {
         return $this->role == 'admin';
+    }
+
+    public function getAgePregnancy() {
+        return get_age_of_pregnancy($this->age_pregnancy->pregnancy_start);
     }
 }
