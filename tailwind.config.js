@@ -34,7 +34,7 @@ module.exports = {
             'user-header': ['40px', '46px'],
             'user-xl': ['56px', '72px'],
             'user-base': ['18px', '26px'],
-            'user-md': ['32px', '32px'],
+            'user-md': ['32px', '40px'],
             'user-xs': ['11px', '11px'],
           },
           boxShadow: {

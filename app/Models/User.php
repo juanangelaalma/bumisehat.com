@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function isAlreadyFilledOutEvaluation() {
         return $this->answers()->where('type', 'evaluation')->count() ? true : false;
     }
+
+    public function isAdmin() {
+        return $this->role == 'admin';
+    }
 }

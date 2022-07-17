@@ -7,7 +7,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($users as $user)
                 @php
-                    $agePregnancy = get_age_of_pregnancy($user->age_pregnancy->pregnancy_start);
+                    $agePregnancy = get_age_of_pregnancy($user->age_pregnancy ? $user->age_pregnancy->pregnancy_start : 0);
                 @endphp
                 <div class="bg-white space-y-3 rounded-lg shadow-md p-4">
                     <div class="flex flex-rox justify-start">

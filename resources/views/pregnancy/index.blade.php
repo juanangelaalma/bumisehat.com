@@ -22,8 +22,8 @@
                             </svg>
                         </div>
                         <time class="mb-1 text-base font-normal text-dark-gray">Minggu {{ $item->weeks }}</time>
-                        <h3 class="text-[30px] leading-10 md:text-user-md font-semibold text-dark">{{ $item->title }}</h3>
-                        <p class="mb-4 text-base font-normal text-dark-gray">{{ strip_tags(substr($item->content, 0, 250), null) }} ...<a href="{{ route('pregnancy.read', $item->id) }}" class="text-primary-index font-semibold">Selengkapnya</a> </p>
+                        <h3 class="text-lg leading-10 md:text-user-md font-semibold text-dark">{{ $item->title }}</h3>
+                        <p class="mb-4 text-base font-normal text-dark-gray w-full">{{ strip_tags(substr($item->content, 0, 250), null) }} ...<a href="{{ route('pregnancy.read', $item->id) }}" class="text-primary-index font-semibold">Selengkapnya</a> </p>
                         @if (!$item->pregnancy_statuses()->where(['user_id' => $user->id, 'pregnancy_alert_id' => $item->id])->first())
                             <x-btn-todo id="{{$item->id}}"></x-btn-todo>
                         @endif

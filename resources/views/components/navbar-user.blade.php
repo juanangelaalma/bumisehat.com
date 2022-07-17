@@ -24,6 +24,11 @@
               <span class="block text-sm font-medium text-gray-500 truncate">{{ $user->email }}</span>
             </div>
             <ul class="py-1" aria-labelledby="dropdown">
+              @if (auth()->user()->isAdmin())
+              <li>
+                <a href="{{ route('admin.dashboard') }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+              </li>
+              @endif
               <li>
                 <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

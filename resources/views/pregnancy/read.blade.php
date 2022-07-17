@@ -6,7 +6,7 @@
 @endphp
 <div class="bg-white py-14">
   <x-title-header-user title="{{ $pregnancy->title }}"></x-title-header-user>
-  <div class="text-dark-gray text-user-base px-3 md:px-24 py-5">
+  <div class="text-dark text-base px-3 md:px-24 py-5">
     {!! $pregnancy->content !!}
   </div>
 </div>

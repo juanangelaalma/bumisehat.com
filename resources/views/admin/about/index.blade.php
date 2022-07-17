@@ -12,7 +12,7 @@
                     action="{{ route('admin.about.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <label class="block text-sm w-full md:w-1/2 pr-2">
+                    <label class="block text-sm w-full md:w-1/2 md:pr-2">
                         <span class="text-gray-700 mb-1 dark:text-gray-400">
                             Whatsapp
                         </span>
@@ -26,7 +26,7 @@
                         @enderror
                     </label>
 
-                    <label class="block text-sm w-full md:w-1/2 pl-2">
+                    <label class="block text-sm w-full md:w-1/2 md:pl-2">
                         <span class="text-gray-700 mb-1 dark:text-gray-400">
                             Email
                         </span>
