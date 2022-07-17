@@ -14,7 +14,7 @@ class PregnancyAlertController extends Controller
 {
     public function index() {
         $user = Auth::user();
-        $age = $user->age_pregnancy ? intval(floor(Carbon::now()->diffInDays($user->age_pregnancy->pregnancy_start) / 7)) : NULL;
+        $age = $user->age_pregnancy ? get_age_of_pregnancy($user->age_pregnancy->pregnancy_start) : NULL;
 
         return view('pregnancy.index', [
             'age' => $age,

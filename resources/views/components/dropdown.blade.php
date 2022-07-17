@@ -2,7 +2,7 @@
     <!-- Profile menu -->
     <li class="relative">
         {{ $trigger }}
-        <div x-show="isProfileMenuOpen">
+        <div x-show="isProfileMenuOpen" style="display: none;">
             <ul
                 x-transition:leave="transition ease-in duration-150"
                 x-transition:leave-start="opacity-100"

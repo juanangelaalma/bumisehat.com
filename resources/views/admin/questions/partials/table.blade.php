@@ -20,7 +20,7 @@
               </td>
               <td class="px-4 py-3 text-sm flex nowrap">
                   <a href="{{ route($routeShow, $user) }}"
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1 mr-1 mb-2">Lihat jawaban</a>
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-normal rounded-lg text-xs px-3 py-1 mr-1 mb-2 truncate">Lihat jawaban</a>
                   {{-- <button onclick="confirmDelete('{{ route('admin.articles.destroy', $article) }}')"
                       class="delete-confirm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 mr-1 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button> --}}
               </td>

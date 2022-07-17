@@ -5,7 +5,7 @@
         <div class="w-full px-0 md:px-2 md:w-[70%] mb-4">
             <div class="flex flex-col">
                 <span class="px-7 mb-5 py-1 font-semibold bg-primary-index self-start rounded-full text-white">Materi</span>
-                <h1 class="font-semibold text-lg md:text-user-header mb-5">{{ $article->title }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, sint!</h1>
+                <h1 class="font-semibold text-lg md:text-user-header mb-5">{{ $article->title }}</h1>
                 <div class="flex items-center gap-3 text-dark font-normal">
                   <p>{{ timestamp_to_tanggal($article->created_at) }} </p>
                   <svg width="3" height="3" viewBox="0 0 3 3" fill="none"
