@@ -46,7 +46,7 @@
                         <div class="w-full md:w-1/2">
                             <h4 class="w-full text-dark text-md font-semibold mb-3">Hasil quiz</h4>
                             <div class="w-full h-auto flex justify-center">
-                                <div id="chart"></div>
+                                <x-pie-chart-answer :falseAnswer=$false_answer :trueAnswer=$true_answer></x-pie-chart-answer>
                             </div>
                         </div>
                     </div>
@@ -106,25 +106,4 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <script>
-            var options = {
-                chart: {
-                    type: 'pie',
-                    height: '400px',
-                    width: '100%'
-                },
-                series: [{{ $false_answer }}, {{ $true_answer }}],
-                labels: ['Salah', 'Benar'],
-                colors: ['#FF1752', '#0086FF'],
-                legend: {
-                    position: 'bottom'
-                }
-            }
-
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-            chart.render();
-        </script>
-        </main>
 </x-app-layout>

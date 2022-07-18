@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -23,9 +24,18 @@ class QuestionController extends Controller
     }
 
     public function quiz() {
-        $questions = Question::all();
-        $isAlreadyFilledOutQuiz = Auth::user()->isAlreadyFilledOutQuiz();
-        return view('questions.quiz', compact('questions', 'isAlreadyFilledOutQuiz'));
+        $user = Auth::user();
+        $isAlreadyFilledOutQuiz = $user->isAlreadyFilledOutQuiz();
+
+        if($isAlreadyFilledOutQuiz) {
+            $true_answer = count(DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id = questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'quiz'"));
+            $false_answer = count(DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id != questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'quiz'"));    
+            return view('questions.quiz', compact('isAlreadyFilledOutQuiz', 'true_answer', 'false_answer'));
+        }else {
+            $questions = Question::all();
+            return view('questions.quiz', compact('questions', 'isAlreadyFilledOutQuiz'));
+        }
+        
     }
 
     public function quiz_submit() {

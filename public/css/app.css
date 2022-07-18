@@ -1407,6 +1407,9 @@ input:checked + .toggle-bg {
 .mt-16 {
   margin-top: 4rem;
 }
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
 .block {
   display: block;
 }
@@ -1509,9 +1512,6 @@ input:checked + .toggle-bg {
 .h-9 {
   height: 2.25rem;
 }
-.h-56 {
-  height: 14rem;
-}
 .max-h-\[141px\] {
   max-height: 141px;
 }
@@ -1611,16 +1611,16 @@ input:checked + .toggle-bg {
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.translate-x-full {
+  --tw-translate-x: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .-translate-x-20 {
   --tw-translate-x: -5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-x-full {
   --tw-translate-x: -100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.translate-x-full {
-  --tw-translate-x: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .rotate-180 {
@@ -1729,6 +1729,11 @@ input:checked + .toggle-bg {
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
@@ -1754,6 +1759,11 @@ input:checked + .toggle-bg {
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1765,6 +1775,9 @@ input:checked + .toggle-bg {
 }
 .self-start {
   align-self: flex-start;
+}
+.self-center {
+  align-self: center;
 }
 .overflow-auto {
   overflow: auto;
@@ -1925,6 +1938,10 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(225 239 254 / var(--tw-bg-opacity));
 }
+.bg-primary-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 91 87 / var(--tw-bg-opacity));
+}
 .bg-primary-index {
   --tw-bg-opacity: 1;
   background-color: rgb(6 111 106 / var(--tw-bg-opacity));
@@ -2001,6 +2018,15 @@ input:checked + .toggle-bg {
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
+.bg-opacity-5 {
+  --tw-bg-opacity: 0.05;
+}
+.bg-opacity-40 {
+  --tw-bg-opacity: 0.4;
+}
+.bg-opacity-70 {
+  --tw-bg-opacity: 0.7;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -2020,6 +2046,9 @@ input:checked + .toggle-bg {
 }
 .p-2\.5 {
   padding: 0.625rem;
+}
+.p-8 {
+  padding: 2rem;
 }
 .p-1 {
   padding: 0.25rem;
@@ -2177,6 +2206,10 @@ input:checked + .toggle-bg {
 .text-user-xs {
   font-size: 11px;
   line-height: 11px;
+}
+.text-user-xl {
+  font-size: 56px;
+  line-height: 72px;
 }
 .text-user-base {
   font-size: 18px;
@@ -3056,10 +3089,6 @@ input:checked + .toggle-bg {
     height: 30rem;
   }
 
-  .md\:h-96 {
-    height: 24rem;
-  }
-
   .md\:min-h-full {
     min-height: 100%;
   }
@@ -3132,6 +3161,12 @@ input:checked + .toggle-bg {
     justify-content: flex-end;
   }
 
+  .md\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
   .md\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1.5rem * var(--tw-space-x-reverse));
@@ -3154,6 +3189,10 @@ input:checked + .toggle-bg {
 
   .md\:bg-transparent {
     background-color: transparent;
+  }
+
+  .md\:p-10 {
+    padding: 2.5rem;
   }
 
   .md\:p-0 {
