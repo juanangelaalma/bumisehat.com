@@ -11,6 +11,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PregnancyAlertController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ShortContentController;
 use App\Http\Controllers\UserController;
 use App\Mail\PregnancyAlertMail;
 use App\Models\PregnancyAlert;
@@ -36,26 +37,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('test_email', 'emails.pregnancy_alert');
 
 require __DIR__ . '/auth.php';
-
-Route::get('/test_view', function () {
-    $users = User::with('age_pregnancy')->get();
-    $alerts = PregnancyAlert::all()->toArray();
-
-    foreach ($users as $user) {
-        if ($user->age_pregnancy) {
-            $user->age_week = get_age_of_pregnancy($user->age_pregnancy->pregnancy_start);
-            $user->alerts = get_alert_by_weeks($alerts, $user->age_week);
-
-            foreach ($user->alerts as $item) {
-                // Mail::to($user)->send(new PregnancyAlertMail($user));
-                return view('emails.pregnancy_alert', ['user' => $user]);
-            }
-        }
-    }
-
-});
-
-
 
 Route::get('tentang', [AboutController::class, 'about'])->name('about.index');
 
@@ -123,6 +104,15 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     });
 
     Route::get('contact', [AdminAboutController::class, 'contact'])->name('admin.contact');
+
+    Route::prefix('short_content')->group(function() {
+        Route::get('/', [ShortContentController::class, 'index'])->name('admin.short_content');
+        Route::get('/create', [ShortContentController::class, 'create'])->name('admin.short_content.create');
+        Route::post('/store', [ShortContentController::class, 'store'])->name('admin.short_content.store');
+        Route::get('/{short_content:id}/edit', [ShortContentController::class, 'edit'])->name('admin.short_content.edit');
+        Route::put('/{short_content:id}/update', [ShortContentController::class, 'update'])->name('admin.short_content.update');
+        Route::get('/{short_content:id}/delete', [ShortContentController::class, 'destroy'])->name('admin.short_content.destroy');
+    });
 });
 
 Route::post('upload', [AdminArticleController::class, 'upload']);

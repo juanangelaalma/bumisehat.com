@@ -85,8 +85,6 @@ class ArticleController extends Controller
         ]);
 
         return redirect()->route('admin.articles');
-
-        dd($request->all());
     }
 
     public function upload(Request $request) {
