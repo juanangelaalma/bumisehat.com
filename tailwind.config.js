@@ -3,10 +3,14 @@ const plugin = require("tailwindcss/plugin");
 const Color = require("color");
 
 module.exports = {
+    content: [
+        "./node_modules/flowbite/**/*.js"
+    ],
     purge: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -21,16 +25,17 @@ module.exports = {
             },
         }),
         fontSize: {
+            xs: ['12px', '19px'],
             sm: ['14px', '20px'],
             base: ['16px', '24px'],
-            lg: ['20px', '28px'],
+            lg: ['21px', '28px'],
             xl: ['24px', '32px'],
             'user-lg': ['38px'],
-            'user-header': ['36px', '50px'],
+            'user-header': ['40px', '46px'],
             'user-xl': ['56px', '72px'],
             'user-base': ['18px', '26px'],
-            'user-md': ['32px', '32px'],
-            'user-xs': ['12px', '20px'] 
+            'user-md': ['32px', '40px'],
+            'user-xs': ['11px', '11px'],
           },
           boxShadow: {
             sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -195,7 +200,7 @@ module.exports = {
                 xl: "36rem",
             },
             fontFamily: {
-                sans: ["Inter", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             },
         },
     },

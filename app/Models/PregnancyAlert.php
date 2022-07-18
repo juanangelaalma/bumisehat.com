@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PregnancyAlert extends Model
 {
     use HasFactory;
+
+    protected $fillable = ["title", "content", "week"];
+
+    public function pregnancy_statuses() {
+        return $this->hasMany(PregnancyStatus::class);
+    }
 }
