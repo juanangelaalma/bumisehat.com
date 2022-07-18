@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use \Znck\Eloquent\Traits\BelongsToThrough;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'puskesmas'
     ];
 
     /**
@@ -41,4 +44,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pregnancy_statuses () {
+        return $this->hasMany(PregnancyStatus::class);
+    } 
+
+    public function answers() {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function age_pregnancy() {
+        return $this->hasOne(AgePregnancy::class);
+    }
+
+    public function pregnancy_alerts() {
+        return $this->belongsToManyThrough(PregnancyAlert::class, PregnancyStatus::class);
+    }
+
+    public function isAlreadyFilledOutQuiz() {
+        return $this->answers()->where('type', 'quiz')->count() ? true : false;
+    }
+
+    public function isAlreadyFilledOutEvaluation() {
+        return $this->answers()->where('type', 'evaluation')->count() ? true : false;
+    }
+
+    public function isAdmin() {
+        return $this->role == 'admin';
+    }
+
+    public function getAgePregnancy() {
+        return get_age_of_pregnancy($this->age_pregnancy->pregnancy_start);
+    }
 }

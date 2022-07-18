@@ -3,10 +3,14 @@ const plugin = require("tailwindcss/plugin");
 const Color = require("color");
 
 module.exports = {
+    content: [
+        "./node_modules/flowbite/**/*.js"
+    ],
     purge: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -21,12 +25,27 @@ module.exports = {
             },
         }),
         fontSize: {
+            xs: ['12px', '19px'],
             sm: ['14px', '20px'],
             base: ['16px', '24px'],
-            lg: ['20px', '28px'],
+            lg: ['21px', '28px'],
             xl: ['24px', '32px'],
             'user-lg': ['38px'],
-            'user-xl': ['56px', '72px']
+            'user-header': ['40px', '46px'],
+            'user-xl': ['56px', '72px'],
+            'user-base': ['18px', '26px'],
+            'user-md': ['32px', '40px'],
+            'user-xs': ['11px', '11px'],
+          },
+          boxShadow: {
+            sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+            DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+            md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+            '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+            none: 'none',
           },
         colors: {
             transparent: 'transparent',
@@ -169,6 +188,7 @@ module.exports = {
                 'dark': '#055B57'
             },
             secondary: '#FF8039',
+            'secondary-dark': '#ED7735',
             'green-light': '#F8F9FA',
             'dark-gray': '#6C757D',
             dark: '#262727',
@@ -180,7 +200,7 @@ module.exports = {
                 xl: "36rem",
             },
             fontFamily: {
-                sans: ["Inter", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             },
         },
     },
@@ -202,6 +222,7 @@ module.exports = {
         boxShadow: ["focus"],
     },
     plugins: [
-        require("@tailwindcss/forms")
+        require("@tailwindcss/forms"),
+        require('flowbite/plugin')
     ],
 };

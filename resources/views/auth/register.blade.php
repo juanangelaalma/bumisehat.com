@@ -31,7 +31,7 @@
                                  name="name"
                                  class="block w-full"
                                  value="{{ old('name') }}"
-                                 required
+                                 
                                  placeholder="Masukkan nama lengkap anda"
                                  autofocus/>
                     </div>
@@ -51,17 +51,37 @@
                                  name="password"
                                  class="block w-full"
                                  placeholder="Masukkan password"
-                                 required/>
+                                 />
                     </div>
 
                     <div class="mt-4">
+                        <x-label-user for="address" :value="__('Alamat')"/>
+                        <x-input-user type="text"
+                                 name="address"
+                                 class="block w-full"
+                                 value="{{ old('address') }}"
+                                 placeholder="Masukkan alamat"
+                                 />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-label-user for="puskesmas" :value="__('Puskesmas')"/>
+                        <x-input-user type="text"
+                                 name="puskesmas"
+                                 class="block w-full"
+                                 placeholder="Masukkan puskesmas"
+                                 value="{{ old('puskesmas') }}"
+                                 />
+                    </div>
+
+                    {{-- <div class="mt-4">
                         <x-label-user id="password_confirmation" :value="__('Konfirmasi Password')"/>
                         <x-input-user type="password"
                                  name="password_confirmation"
                                  class="block w-full"
                                  placeholder="Masukkan konfirmasi password"
-                                 required/>
-                    </div>
+                                 />
+                    </div> --}}
 
                     <div class="mt-4">
                         <x-button-user class="block w-full">

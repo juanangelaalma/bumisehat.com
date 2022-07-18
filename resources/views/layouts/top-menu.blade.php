@@ -1,8 +1,8 @@
 <header class="z-10 py-4 bg-white shadow-md">
-    <div class="container flex justify-between items-center px-6 mx-auto h-full text-purple-600 md:justify-end">
+    <div class="container flex justify-between items-center px-6 mx-auto h-full text-primary-index md:justify-end">
         <!-- Mobile hamburger -->
         <button
-            class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+            class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-primary-index"
             @click="toggleSideMenu"
             aria-label="Menu"
         >
@@ -23,29 +23,19 @@
         <x-dropdown>
             <x-slot name="trigger">
                 <button
-                    class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
+                    class="align-middle rounded-full focus:shadow-outline-primary-index focus:outline-none"
                     @click="toggleProfileMenu"
                     @keydown.escape="closeProfileMenu"
                     aria-label="Account"
                     aria-haspopup="true"
                 >
-                    {{ Auth::user()->name }}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.9 9.19999C16.5 8.79999 15.9 8.79999 15.5 9.19999L12 12.7L8.50005 9.19999C8.10005 8.79999 7.50005 8.79999 7.10005 9.19999C6.70005 9.59999 6.70005 10.2 7.10005 10.6L11.3 14.8C11.5 15 11.7 15.1 12 15.1C12.3 15.1 12.5 15 12.7 14.8L16.9 10.6C17.3 10.2 17.3 9.59999 16.9 9.19999Z" fill="#262727"/>
+                    </svg>                    
                 </button>
             </x-slot>
 
             <x-slot name="content">
-                <x-dropdown-link href="{{ route('profile.show') }}">
-                    <x-slot name="icon">
-                        <svg class="mr-3 w-4 h-4" aria-hidden="true" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </x-slot>
-                    My profile
-                </x-dropdown-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-dropdown-link :href="route('logout')"

@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('alert:pregnancy')->weeklyOn(5, '8:00')->timezone('Asia/Jakarta');
     }
 
     /**
