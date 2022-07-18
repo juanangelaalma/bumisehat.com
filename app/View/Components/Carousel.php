@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\ShortContent;
 use Illuminate\View\Component;
 
 class Carousel extends Component
@@ -23,6 +24,7 @@ class Carousel extends Component
      */
     public function render()
     {
-        return view('components.carousel');
+        $shorts = ShortContent::latest()->get();
+        return view('components.carousel', compact('shorts'));
     }
 }
