@@ -54,6 +54,8 @@ Route::prefix('pengingat-kehamilan')->middleware('auth')->group(function () {
     Route::post('/{id}/done', [PregnancyAlertController::class, 'done'])->name('pregnancy.done');
 });
 
+Route::get('short_contents/{id}/read', [ShortContentController::class, 'read'])->name('short_content.read');
+
 Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
 
 Route::prefix('evaluasi')->group(function () {

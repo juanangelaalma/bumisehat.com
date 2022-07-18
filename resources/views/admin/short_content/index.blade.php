@@ -36,7 +36,7 @@
                                   </div>
                               </td>
                               <td class="px-4 py-3 text-sm truncate">
-                                  {{ strip_tags(substr($short_content->body, 0, 70), null) }} ...
+                                  {{ strip_tags(substr(str_replace("&nbsp;", "", $short_content->body), 0, 70), null) }} ...
                               </td>
                               <td class="px-4 py-3 text-sm flex nowrap">
                                   <a href="{{ route('admin.short_content.edit', $short_content) }}"

@@ -11,7 +11,7 @@
           <img class="w-full h-full object-cover object-center" src="{{ asset("storage/uploads/articles/thumbnails/$article->image") }}" alt="">
         </div>
         <h1 class="text-dark font-semibold text-[20px]">{{ $article->title }}</h1>
-        <p class="text-dark text-base">{{ strip_tags(substr($article->body, 0, 130), null) }} ...<a href="{{ route('articles.read', $article->slug) }}" class="text-primary-index font-semibold">Selengkapnya</a></p>
+        <p class="text-dark text-base">{{ strip_tags(substr(str_replace("&nbsp;", "", $article->body), 0, 130), null) }} ...<a href="{{ route('articles.read', $article->slug) }}" class="text-primary-index font-semibold">Selengkapnya</a></p>
       </div>
       @endforeach
     </div>

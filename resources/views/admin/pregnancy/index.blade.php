@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="flex flex-col space-y-2 h-[141px] max-h-[141px] overflow-y-auto">
+                    <div class="flex flex-col space-y-2 h-[141px] max-h-[141px] overflow-y-auto scrollbar">
                         @foreach ($alerts as $alert)
                             @php
                                 $alertAndStatus = get_alert_in_statuses($alert->id, $user->pregnancy_statuses);

@@ -17,6 +17,7 @@ class PregnancyAlertController extends Controller
         }
         return false;
     }
+    
     public function index()
     {
         $users = User::with('age_pregnancy', 'pregnancy_statuses')->get();

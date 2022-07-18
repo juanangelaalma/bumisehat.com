@@ -91,4 +91,13 @@ class ShortContentController extends Controller
         $shortContent->delete();  
         return back();
     }
+
+    public function read($id) {
+        $short = ShortContent::find($id);
+        return view('articles.read', [
+            'article' => $short,
+            'new_articles' => ShortContent::where('id', '!=', $id)->get(),
+            'is_short'  => true
+        ]);
+    }
 }

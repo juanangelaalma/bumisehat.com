@@ -23,19 +23,37 @@ class QuestionController extends Controller
         return $final;
     }
 
+    private function getTotalPoint($items) {
+        $total = 0;
+        foreach($items as $item) {
+            $total = $total + $item->point;
+        }
+        return $total;
+    }
+
     public function quiz() {
         $user = Auth::user();
         $isAlreadyFilledOutQuiz = $user->isAlreadyFilledOutQuiz();
 
         if($isAlreadyFilledOutQuiz) {
-            $true_answer = count(DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id = questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'quiz'"));
-            $false_answer = count(DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id != questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'quiz'"));    
-            return view('questions.quiz', compact('isAlreadyFilledOutQuiz', 'true_answer', 'false_answer'));
+            $true_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id = questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'quiz'");
+            $false_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id != questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'quiz'");    
+            $true_point = $this->getTotalPoint($true_answer);
+            $false_point = $this->getTotalPoint($false_answer);
+            return view('questions.quiz', [
+                'isAlreadyFilledOutQuiz' => $isAlreadyFilledOutQuiz,
+                'true_answer' => count($true_answer),
+                'false_answer' => count($false_answer),
+                'true_point' => $true_point,
+                'false_point' => $false_point
+            ]);
         }else {
             $questions = Question::all();
-            return view('questions.quiz', compact('questions', 'isAlreadyFilledOutQuiz'));
+            return view('questions.quiz', [
+                'isAlreadyFilledOutQuiz' => $isAlreadyFilledOutQuiz,
+                'questions' => $questions,
+            ]);
         }
-        
     }
 
     public function quiz_submit() {
@@ -54,7 +72,26 @@ class QuestionController extends Controller
             return redirect()->route('quiz.index')->with('errorAlert', 'Anda harus mengisi quiz terlebih dahulu sebelum mengisi form evaluasi');
         }
 
-        return view('questions.evaluation', compact('questions', 'isAlreadyFilledOutEvaluation'));
+        if($isAlreadyFilledOutEvaluation) {
+            $true_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id = questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'evaluation'");
+            $false_answer = DB::select("select answers.id, point from answers inner join questions on answers.question_id = questions.id where answers.offered_answer_id != questions.true_answer AND questions.true_answer IS NOT NULL AND answers.user_id = $user->id AND answers.type = 'evaluation'");    
+            $true_point = $this->getTotalPoint($true_answer);
+            $false_point = $this->getTotalPoint($false_answer);
+            
+            return view('questions.evaluation', [
+                'isAlreadyFilledOutEvaluation' => $isAlreadyFilledOutEvaluation,
+                'true_answer' => count($true_answer),
+                'false_answer' => count($false_answer),
+                'true_point' => $true_point,
+                'false_point' => $false_point
+            ]);
+        }else {
+            $questions = Question::all();
+            return view('questions.evaluation', [
+                'isAlreadyFilledOutEvaluation' => $isAlreadyFilledOutEvaluation,
+                'questions' => $questions,
+            ]);
+        }
     }
 
     public function evaluation_submit() {
