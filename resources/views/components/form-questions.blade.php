@@ -12,13 +12,13 @@
               </div>
               <div class="flex items-center">
                   <h3
-                      class="text-[20px] leading-7 md:text-user-lg md:leading-10 font-semibold text-dark mt-0 md:mt-2">
+                      class="text-[20px] leading-7 md:text-lg md:leading-10 font-semibold text-dark mt-0 md:mt-2">
                       {{ $question->question }}</h3>
               </div>
               <ul
-                  class="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-3 m-10 max-w-xl mr-0 ml-auto pt-2 md:pt-10">
+                  class="grid grid-cols-1 md:grid-cols-2 m-10 w-full mr-0 ml-0 pt-2">
                   @foreach ($question->offered_answers as $offered)
-                      <li class="relative">
+                      <li class="relative mb-4 mx-2">
                           <input class="sr-only peer" type="radio"
                               value="{{ "$offered->id" }}" name="answer[{{ $question->id }}]"
                               id="{{ $offered->id }}">
