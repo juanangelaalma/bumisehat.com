@@ -41,7 +41,7 @@
                         @if ($page == $paginator->currentPage())
                         <span aria-current="page">
                             <span
-                                class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">{{ $page }}</span>
+                                class="px-3 py-1 text-white transition-colors duration-150 bg-primary-index border border-r-0 border-primary-index rounded-md focus:outline-none focus:shadow-outline-purple">{{ $page }}</span>
                         </span>
                         @else
                         <a href="{{ $url }}">

@@ -14,7 +14,7 @@ class QuestionController extends Controller
     public function quiz() {
         $users = User::whereHas('answers', function(Builder $query) {
             $query->where('type', 'quiz');
-        })->get();
+        })->paginate(9);
 
         return view('admin.questions.quiz', compact('users'));
     }
@@ -22,7 +22,7 @@ class QuestionController extends Controller
     public function evaluation() {
         $users = User::whereHas('answers', function(Builder $query) {
             $query->where('type', 'evaluation');
-        })->get();
+        })->paginate(9);
 
         return view('admin.questions.evaluation', compact('users'));
     }

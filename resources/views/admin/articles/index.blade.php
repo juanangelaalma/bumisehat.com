@@ -54,7 +54,6 @@
                 {{ $articles->links() }}
             </div>
         </div>
-        </main>
         <script>
             function confirmDelete(url) {
                 Swal.fire({
