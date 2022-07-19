@@ -9,7 +9,14 @@
                 @php
                     $agePregnancy = get_age_of_pregnancy($user->age_pregnancy ? $user->age_pregnancy->pregnancy_start : 0);
                 @endphp
-                <div class="bg-white space-y-3 rounded-lg shadow-md p-4">
+                <div class="bg-white space-y-3 rounded-lg shadow-md p-4 relative">
+                    @if (get_miseed_pregnnacy($alerts, $user->pregnancy_statuses, $agePregnancy))
+                    <span class="bg-red-100 absolute right-1 top-1 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">
+                        miss {{ get_miseed_pregnnacy($alerts, $user->pregnancy_statuses, $agePregnancy) }}
+                    </span>
+                    @else
+                    <span class="bg-blue-100 absolute right-1 top-1  text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">no miss</span>
+                    @endif
                     <div class="flex flex-rox justify-start">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -18,15 +25,19 @@
                                 fill="#262727" />
                         </svg>
                         <div class="ml-3">
+                            {{-- name --}}
                             <h5 class="text-base font-medium text-dark">{{ $user->name }}</h5>
+                            {{-- email --}}
                             <p class="text-user-xs font-normal text-dark">{{ $user->email }}</p>
                         </div>
                     </div>
                     <div class="flex flex-col space-y-1">
+                        {{-- umur berdasarkan minggu --}}
                         <h6 class="text-xs font-semibold text-dark">Minggu {{ $agePregnancy }}<span class="text-dark-gray">/42</span>
                         </h6>
                         <div class="flex flex-row w-full items-center">
                             <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
+                                {{-- progress bar --}}
                                 <div class="bg-primary-index h-1.5 rounded-full"
                                     style="width: {{ ($agePregnancy / 42) * 100 }}%">
                                 </div>
@@ -37,9 +48,10 @@
                     <div class="flex flex-col space-y-2 h-[141px] max-h-[141px] overflow-y-auto scrollbar">
                         @foreach ($alerts as $alert)
                             @php
+                                // Cek apakah alert ada di status alert user?
                                 $alertAndStatus = get_alert_in_statuses($alert->id, $user->pregnancy_statuses);
                             @endphp
-                            @if ($alertAndStatus)
+                            @if ($alertAndStatus) {{-- jika ada maka ditampilihn warna hijau --}}
                                 <div class="flex flex-row items-center justify-start">
                                     <div class="w-[24px] h-[24px]">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -52,7 +64,8 @@
                                     <span class="text-user-xs text-primary-index leading-4">{{ $alert->title }}</span>
                                 </div>
                             @else 
-                            @if ($agePregnancy > $alert->weeks)
+                            {{-- jika tidak ada maka dicek apakah alert tersebut udah kelewat dengan umur kehamilan atau belum --}}
+                            @if ($agePregnancy > $alert->weeks) {{-- jika kelewat maka ditampilin warna merah --}}
                             <div class="flex flex-row items-center justify-start">
                                 <div class="h-[24px] w-[24px] flex justify-center items-center">
                                     <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
@@ -65,7 +78,8 @@
                                 <span class="text-user-xs text-red-500">{{ $alert->title }}</span>
                             </div>
                             @else
-                                @if ($agePregnancy == $alert->weeks)
+                                {{-- jika belum kelewat dicek lagi nih, apakah sesuai dengan umur sekarang --}}
+                                @if ($agePregnancy == $alert->weeks) {{-- jika iya maka ditampilin umur sekarang --}}
                                 <div class="flex flex-row items-center justify-start">
                                     <div class="h-[24px] w-[24px] flex justify-center items-center">
                                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,6 +89,7 @@
                                     <span class="text-user-xs text-dark">{{ $alert->title }}</span>
                                 </div>
                                 @endif
+                                {{-- Jika tidak juga berarti dia belum saatnya ditampilin --}}
                             @endif
                             @endif
                         @endforeach
@@ -83,6 +98,13 @@
             @endforeach
         </div>
     </div>
+    <script>
+        const scrollEl =document.querySelectorAll('.scrollbar')
+
+        scrollEl.forEach(scroll => {
+            scroll.scrollTop = scroll.scrollHeight;
+        });
+    </script>
 </x-app-layout>
 
 {{-- <div class="flex flex-row items-center justify-start">

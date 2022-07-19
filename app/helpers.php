@@ -49,3 +49,17 @@ function get_alert_by_weeks($alerts, $weeks) {
 
   return $new_array;
 }
+
+function get_miseed_pregnnacy($alerts, $statuses, $agePregnancy) {
+  $results = 0;
+  
+  foreach($alerts as $alert) {
+    if(!get_alert_in_statuses($alert->id, $statuses)) {
+      if($agePregnancy > $alert->weeks) {
+        $results++;
+      }
+    }
+  }
+
+  return $results;
+}

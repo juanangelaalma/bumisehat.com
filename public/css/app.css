@@ -1250,6 +1250,15 @@ input:checked + .toggle-bg {
 .bottom-5 {
   bottom: 1.25rem;
 }
+.right-1 {
+  right: 0.25rem;
+}
+.top-1 {
+  top: 0.25rem;
+}
+.top-2 {
+  top: 0.5rem;
+}
 .z-0 {
   z-index: 0;
 }
