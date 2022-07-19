@@ -15,4 +15,4 @@ yarn-error.log
 /.vscode
 ./storage/debugbar/*.json
 /public/js/app.js
-/public/js/app.js
+/public/css/app.css
