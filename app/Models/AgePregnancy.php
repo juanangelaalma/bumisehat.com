@@ -9,8 +9,7 @@ class AgePregnancy extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'pregnancy_start'];
-    public $timestamps = false;
+    protected $fillable = ['user_id', 'pregnancy_start', 'age_when_join'];
 
     public function user() {
         return $this->belongsTo(User::class);

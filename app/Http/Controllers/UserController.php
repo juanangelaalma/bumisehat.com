@@ -19,10 +19,12 @@ class UserController extends Controller
     public function setPregnancyStart() {
         $user = Auth::user();
         $date = date('Y-m-d', strtotime(request('pregnancy_start')));
+        $age_when_join = get_age_of_pregnancy($date);
 
         AgePregnancy::create([
             'pregnancy_start' => $date,
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'age_when_join' => $age_when_join
         ]);
 
         return back();

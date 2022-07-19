@@ -50,13 +50,15 @@ function get_alert_by_weeks($alerts, $weeks) {
   return $new_array;
 }
 
-function get_miseed_pregnnacy($alerts, $statuses, $agePregnancy) {
+function get_miseed_pregnnacy($alerts, $user, $agePregnancy) {
   $results = 0;
   
   foreach($alerts as $alert) {
-    if(!get_alert_in_statuses($alert->id, $statuses)) {
-      if($agePregnancy > $alert->weeks) {
-        $results++;
+    if($user->age_pregnancy && ($alert->weeks >= $user->age_pregnancy->age_when_join)) {
+      if(!get_alert_in_statuses($alert->id, $user->pregnancy_statuses)) {
+        if($agePregnancy > $alert->weeks) {
+          $results++;
+        }
       }
     }
   }
