@@ -10,7 +10,7 @@
     }
 
     .progress_animate {
-        animation: 1.5s ease-in-out 0.3s 1 widthScale;
+        animation: 1s ease-in-out 0s 1 widthScale;
     }
 </style>
 

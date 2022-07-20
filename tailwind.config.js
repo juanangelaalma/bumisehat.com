@@ -192,7 +192,7 @@ module.exports = {
             'green-light': '#F8F9FA',
             'dark-gray': '#6C757D',
             dark: '#262727',
-            'ligh-of-light': '#CACED2'
+            'light-of-light': '#CACED2'
         },
         extend: {
             maxHeight: {
@@ -200,7 +200,7 @@ module.exports = {
                 xl: "36rem",
             },
             fontFamily: {
-                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                sans: ["Public Sans", ...defaultTheme.fontFamily.sans],
             },
         },
     },

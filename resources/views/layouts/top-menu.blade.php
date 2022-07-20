@@ -1,4 +1,4 @@
-<header class="z-10 py-4 bg-white shadow-md">
+<header class="z-10 py-4 bg-white shadow-sm">
     <div class="container flex justify-between items-center px-6 mx-auto h-full text-primary-index md:justify-end">
         <!-- Mobile hamburger -->
         <button
