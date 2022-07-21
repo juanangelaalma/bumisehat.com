@@ -3,7 +3,7 @@
     <div class="slide w-full max-w-full h-[35rem] md:h-[30rem] absolute transition-all duration-300">
         <img class="w-full h-full object-cover z-10" src="{{ asset("storage/uploads/short_contents/thumbnails/$short->image") }}" alt="">
         <div class="z-[2] w-full h-full absolute left-0 top-0 bg-dark opacity-40"></div>
-        <div class="absolute top-0 w-full h-full z-10 md:w-3/5 lg:3/5 flex justify-center flex-col px-10 md:px-24 text-white">
+        <div class="absolute top-0 w-full h-full z-10 md:w-3/5 lg:3/5 flex justify-center md:items-start flex-col px-14 pl-16 md:px-24 text-white">
             <h1 class="text-user-md md:text-user-header mb-4 font-semibold">{{ $short->title }}</h1>
             <p class="text-base mb-5">{{ strip_tags(substr(str_replace("&nbsp;", "", $short->body), 0, 130), null) }}</p>
             <div class="w-full justify-start">
