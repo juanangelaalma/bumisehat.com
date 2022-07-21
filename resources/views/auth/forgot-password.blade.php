@@ -7,7 +7,10 @@
         <div class="flex justify-center items-center p-6 sm:p-12 md:w-1/2">
             <div class="w-full">
                 <h1 class="mb-4 font-semibold text-gray-700">
-                    {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+                    {{ __('Lupa password?') }}
+                    <span class="font-light text-sm">
+                        Tidak masalah. Cukup beri alamat email anda dan kami akan mengirimkan email yang berisi tautan untuk memperarui password anda.
+                    </span>
                 </h1>
 
                 <!-- Session Status -->
@@ -21,7 +24,7 @@
 
                     <div class="mt-4">
                         <x-label for="email" :value="__('Email')"/>
-                        <x-input type="email"
+                        <x-input-user type="email"
                                  class="block w-full"
                                  name="email"
                                  id="email"
@@ -30,7 +33,7 @@
                     </div>
 
                     <x-button class="block mt-4 w-full">
-                        {{ __('Email Password Reset Link') }}
+                        {{ __('Kirim permintaan') }}
                     </x-button>
                 </form>
             </div>

@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Mail\PregnancyAlertMail;
 use App\Models\PregnancyAlert;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
-Route::view('test_email', 'emails.pregnancy_alert');
+Route::get('/test_email', function() {
+    return view('emails.pregnancy_alert', [
+        'user' => User::all()->first(),
+        'alert' => PregnancyAlert::all()->first()
+    ]);
+});
 
 require __DIR__ . '/auth.php';
 

@@ -13,7 +13,8 @@
             padding: 0;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
-            background-color: gray;
+            background-color: #CACED2;
+            line-height: 1.4;
         }
 
         h1 {
@@ -118,7 +119,7 @@
         }
 
         p.top {
-            color: #262727;
+            color: #6C757D;
             margin-top: 20px;
             font-weight: 500;
         }
@@ -140,7 +141,7 @@
             font-family: 'Arial';
             font-style: normal;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 18px;
             margin-left: 7px;
             color: #262727;
@@ -149,6 +150,7 @@
         .content {
             margin: 0;
             margin-left: 7px;
+            color: #6C757D;
         }
         .mb-2 {
             margin-bottom: 20px;
@@ -211,7 +213,7 @@
                 </p>
                 <hr class="mb-2">
                 <p class="text-center text-secondary">
-                    © 2022 Bumilsehat. All Right Reserved <br>
+                    © {{ date('Y') }} {{ config('app.name') }}. All Right Reserved <br>
                 </p>
             </div>
         </div>
