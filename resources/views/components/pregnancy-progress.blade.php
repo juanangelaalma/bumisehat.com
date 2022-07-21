@@ -22,7 +22,7 @@
 
     <div class="flex flex-row w-full items-center">
         <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 overflow-hidden">
-            <div class="bg-primary-index h-2.5 rounded-full progress_animate" style="width: {{ ($age / 42) * 100 }}%;">
+            <div class="bg-primary-index h-2.5 rounded-full progress_animate" style="width: {{ ($age / env('MAX_PREGNANCY_AGE')) * 100 }}%;">
             </div>
         </div>
     </div>

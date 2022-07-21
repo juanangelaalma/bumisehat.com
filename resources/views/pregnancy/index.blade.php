@@ -7,6 +7,7 @@
 
 
         <div class="px-3 md:px-24 py-5 flex flex-col">
+            @if ($age <= env('MAX_PREGNANCY_AGE'))
             <x-pregnancy-progress age="{{ $age }}"></x-pregnancy-progress>
             <div class="ml-7 mr-2 mt-8 md:px-16">
                 <ol class="relative px-6 border-l border-gray-200 dark:border-gray-700">
@@ -47,6 +48,9 @@
                     @endif
                 </ol>
             </div>
+            @else
+            <div class="text-center">Masa kehamilan anda telah usai</div>
+            @endif
         </div>
 
         @if ($age == NULL && gettype($age) == "NULL")

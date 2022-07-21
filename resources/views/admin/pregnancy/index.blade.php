@@ -36,14 +36,18 @@
                     </div>
                     <div class="flex flex-col space-y-1">
                         {{-- umur berdasarkan minggu --}}
-                        <h6 class="text-xs font-semibold text-dark">Minggu {{ $agePregnancy }}<span
-                                class="text-dark-gray">/42</span>
-                        </h6>
+                        @if ($agePregnancy <= env('MAX_PREGNANCY_AGE'))
+                            <h6 class="text-xs font-semibold text-dark">Minggu {{ $agePregnancy }}<span
+                                    class="text-dark-gray">/{{ env('MAX_PREGNANCY_AGE') }}</span>
+                            </h6>
+                        @else
+                        <h6 class="text-xs font-semibold text-dark">Telah usai</h6>
+                        @endif
                         <div class="flex flex-row w-full items-center">
                             <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
                                 {{-- progress bar --}}
                                 <div class="bg-primary-index h-1.5 rounded-full"
-                                    style="width: {{ ($agePregnancy / 42) * 100 }}%">
+                                    style="width: {{ $agePregnancy <= env('MAX_PREGNANCY_AGE') ? (($agePregnancy / env('MAX_PREGNANCY_AGE')) * 100) : 100 }}%">
                                 </div>
                             </div>
                         </div>
@@ -55,7 +59,7 @@
                                 // Cek apakah alert ada di status alert user?
                                 $alertAndStatus = get_alert_in_statuses($alert->id, $user->pregnancy_statuses);
                             @endphp
-                            @if ($user->age_pregnancy && ($alert->weeks >= $user->age_pregnancy->age_when_join))
+                            @if ($user->age_pregnancy && $alert->weeks >= $user->age_pregnancy->age_when_join)
                                 @if ($alertAndStatus)
                                     {{-- jika ada maka ditampilihn warna hijau --}}
                                     <div class="flex flex-row items-center justify-start">

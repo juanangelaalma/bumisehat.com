@@ -141,7 +141,7 @@
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm truncate text-center">
-                                            {{ get_age_of_pregnancy($user->age_pregnancy->pregnancy_start) }}
+                                            {{ get_age_of_pregnancy($user->age_pregnancy->pregnancy_start) <= env('MAX_PREGNANCY_AGE') ? get_age_of_pregnancy($user->age_pregnancy->pregnancy_start) : 'Telah usai' }}
                                         </td>
                                     </tr>
                                 @endforeach

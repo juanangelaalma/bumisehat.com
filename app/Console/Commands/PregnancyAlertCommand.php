@@ -5,7 +5,9 @@ namespace App\Console\Commands;
 use App\Mail\PregnancyAlertMail;
 use App\Models\PregnancyAlert;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 
 class PregnancyAlertCommand extends Command
@@ -41,7 +43,12 @@ class PregnancyAlertCommand extends Command
      */
     public function handle()
     {
-        $users = User::with('age_pregnancy')->get();
+        $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE') * 7);
+
+        $users = User::with('age_pregnancy')->whereHas('age_pregnancy', function(Builder $query) use ($maxPregnancyAge) {
+            $query->where('pregnancy_start', '>=', $maxPregnancyAge->subDays(1));
+        })->get();
+
         $alerts = PregnancyAlert::all()->toArray();
 
         foreach ($users as $user) {

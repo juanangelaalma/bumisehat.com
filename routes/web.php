@@ -16,6 +16,8 @@ use App\Http\Controllers\UserController;
 use App\Mail\PregnancyAlertMail;
 use App\Models\PregnancyAlert;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -36,6 +38,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/test_email', function() {
+    $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE') * 7);
+    // dd($maxPregnancyAge);
+    dd(get_age_of_pregnancy(User::with('age_pregnancy')->whereHas('age_pregnancy', function(Builder $query) use ($maxPregnancyAge) {
+        $query->where('pregnancy_start', '>=', $maxPregnancyAge->subDays(1));
+    })->get()[0]->age_pregnancy->pregnancy_start));
     return view('emails.pregnancy_alert', [
         'user' => User::all()->first(),
         'alert' => PregnancyAlert::all()->first()
@@ -64,12 +71,12 @@ Route::get('short_contents/{id}/read', [ShortContentController::class, 'read'])-
 
 Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
 
-Route::prefix('evaluasi')->group(function () {
+Route::prefix('evaluasi')->middleware('auth')->group(function () {
     Route::get('/', [QuestionController::class, 'evaluation'])->name('evaluation.index');
     Route::post('/submit', [QuestionController::class, 'evaluation_submit'])->name('evaluation.submit');
 });
 
-Route::prefix('quiz')->group(function () {
+Route::prefix('quiz')->middleware('auth')->group(function () {
     Route::get('/', [QuestionController::class, 'quiz'])->name('quiz.index');
     Route::post('/submit', [QuestionController::class, 'quiz_submit'])->name('quiz.submit');
 });
