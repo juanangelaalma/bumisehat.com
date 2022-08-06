@@ -10,11 +10,12 @@ class ArticleController extends Controller
 {
     public function index() {
         $data = Article::latest()->get();
-        return view('articles.index', ['articles' => $data]);
+        return view('articles.index', ['articles' => $data, 'webTitle' => 'Materi']);
     }
 
     public function read(Article $article) {
         $new_articles = Article::where('id', '!=', $article->id)->limit(4)->get();
-        return view('articles.read', compact('article', 'new_articles'));
+        $webTitle = $article->title;
+        return view('articles.read', compact('article', 'new_articles', 'webTitle'));
     }
 }

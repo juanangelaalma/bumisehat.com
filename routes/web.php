@@ -34,6 +34,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/testing', function() {
+    dd(get_age_of_pregnancy('2021-09-30'));
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 

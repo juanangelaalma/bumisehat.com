@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between nowrap w-full">
-            {{ __('Tentang Bumil Sehat') }}
+            {{ __('Tentang ') . env('APP_NAME') }}
         </div>
     </x-slot>
     <div class="container grid">
@@ -18,7 +18,7 @@
                         </span>
                         <input
                             class="block w-full mt-1 text-sm rounded-md @error('wa') border-red-600 focus:border-red-400 @enderror focus:outline-none focus:shadow-outline-purple form-input"
-                            placeholder="083xxxxxxxxx" name="wa" value="{{ $about->whatsapp }}" />
+                            placeholder="083xxxxxxxxx" name="wa" value="{{ $about ? $about->whatsapp : '' }}" />
                         @error('wa')
                             <span class="text-xs text-red-600 dark:text-red-400">
                                 {{ $message }}
@@ -32,7 +32,7 @@
                         </span>
                         <input
                             class="block w-full mt-1 text-sm rounded-md @error('email') border-red-600 focus:border-red-400 @enderror focus:outline-none focus:shadow-outline-purple form-input"
-                            placeholder="info@bumilsehat.com" name="email" value="{{ $about->email }}" />
+                            placeholder="info@bumilsehat.com" name="email" value="{{ $about ? $about->email : '' }}" />
                         @error('email')
                             <span class="text-xs text-red-600 dark:text-red-400">
                                 {{ $message }}
@@ -44,7 +44,7 @@
                         <span class="text-gray-700 mb-1 dark:text-gray-400">
                             Deskripsi 
                         </span>
-                        <textarea class="form-control" name="body" id="body">{{ $about->body }}</textarea>
+                        <textarea class="form-control" name="body" id="body">{{ $about ? $about->body : '' }}</textarea>
                         @error('body')
                             <span class="text-xs text-red-600 dark:text-red-400">
                                 {{ $message }}

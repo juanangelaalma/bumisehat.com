@@ -6,18 +6,12 @@
             @click="toggleSideMenu"
             aria-label="Menu"
         >
-            <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clip-rule="evenodd"
-                ></path>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="1" x2="16" y2="1" stroke="black" stroke-width="2"/>
+            <line y1="8" x2="16" y2="8" stroke="black" stroke-width="2"/>
+            <line y1="15" x2="16" y2="15" stroke="black" stroke-width="2"/>
             </svg>
+            
         </button>
 
         <x-dropdown>
@@ -29,10 +23,10 @@
                     aria-label="Account"
                     aria-haspopup="true"
                 >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.9 9.19999C16.5 8.79999 15.9 8.79999 15.5 9.19999L12 12.7L8.50005 9.19999C8.10005 8.79999 7.50005 8.79999 7.10005 9.19999C6.70005 9.59999 6.70005 10.2 7.10005 10.6L11.3 14.8C11.5 15 11.7 15.1 12 15.1C12.3 15.1 12.5 15 12.7 14.8L16.9 10.6C17.3 10.2 17.3 9.59999 16.9 9.19999Z" fill="#262727"/>
-                    </svg>                    
-                </button>
+                <svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6597 0L7.32996 6.02051L8.87546 7.28992L17.7507 0H14.6597Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L8.10257 6.65521L9.64806 5.38578L3.09099 0H0Z" fill="black"/>
+                    </svg>
             </x-slot>
 
             <x-slot name="content">
@@ -40,14 +34,7 @@
                     @csrf
                     <x-dropdown-link :href="route('logout')"
                                      onclick="event.preventDefault(); this.closest('form').submit();">
-                        <x-slot name="icon">
-                            <svg class="mr-3 w-4 h-4" aria-hidden="true" fill="none" stroke-linecap="round"
-                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                            </svg>
-                        </x-slot>
-                        {{ __('Log Out') }}
+                        {{ __('Keluar') }}
                     </x-dropdown-link>
                 </form>
             </x-slot>

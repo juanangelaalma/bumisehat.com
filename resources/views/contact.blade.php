@@ -5,7 +5,7 @@
         <x-title-header-user title="Hubungi Kami"></x-title-header-user>
         <div class="flex flex-col items-center">
             <div class="w-full flex justify-center py-5">
-                <a target="__blank" href="https://wa.me/{{ $contact->whatsapp }}">
+                <a target="__blank" href="https://wa.me/{{  $contact ? $contact->whatsapp : '' }}">
                     <img src="{{ asset('images/logo/whatsapp.png') }}" alt="">
                 </a>
             </div>

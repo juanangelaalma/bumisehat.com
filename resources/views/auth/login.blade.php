@@ -1,16 +1,16 @@
 <x-guest-layout>
     <div class="flex flex-col overflow-y-auto md:flex-row">
         <div class="hidden md:block h-32 p-6 md:h-auto md:w-1/2">
-            <img aria-hidden="true" class="object-cover w-full h-full" src="{{ asset('svg/login.svg') }}"
+            <img aria-hidden="true" class="object-cover w-full h-full" src="{{ asset('images/login.png') }}"
                 alt="Office" />
         </div>
         <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
             <div class="w-full">
-                <div class="flex flex-row justify-start items-end mb-3">
+                <div class="flex flex-row justify-start items-center mb-3">
                     <h1 class="text-user-lg font-semibold text-primary-index">
                         LOGIN
                     </h1>
-                    <img src="{{ asset('svg/brand.svg') }}" alt="Bumil Sehat">
+                    <img src="{{ asset('images/brand.png') }}" class="ml-3 h-8 sm:h-9" alt="Flowbite Logo">
                 </div>
 
                 <p class="text-dark text-base mb-3 font-light">Masukkan email dan password untuk mengakses akun anda</p>

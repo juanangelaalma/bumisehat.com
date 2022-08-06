@@ -10,11 +10,18 @@ use Illuminate\Support\Facades\Mail;
 class AboutController extends Controller
 {
     public function about() {
-        return view('about', ['about' => About::get('body')->first()->body]);
+        $about = About::get('body')->first();
+        return view('about', [
+            'about' => $about ? $about->body : '',
+            'webTitle' => 'Tentang'
+        ]);
     }
 
     public function contact() {
-        return view('contact', ['contact' => About::get(['email', 'whatsapp'])->first()]);
+        return view('contact', [
+            'contact' => About::get(['email', 'whatsapp'])->first(),
+            'webTitle' => 'Hubungi kami'
+        ]);
     }
 
     public function sendEmail(Request $request) {

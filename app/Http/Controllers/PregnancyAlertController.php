@@ -14,19 +14,24 @@ class PregnancyAlertController extends Controller
 {
     public function index() {
         $user = Auth::user();
-        $age = $user->age_pregnancy ? get_age_of_pregnancy($user->age_pregnancy->pregnancy_start) : NULL;
+        $age_pregnancy = $user->age_pregnancy;
+        $age = $age_pregnancy ? get_age_of_pregnancy($age_pregnancy->pregnancy_start) : NULL;
+
+        $idStatuses = PregnancyStatus::where('user_id', $user->id)->get('pregnancy_alert_id');
 
         return view('pregnancy.index', [
             'age' => $age,
             'pregnancy_alerts' => PregnancyAlert::where('weeks', $age)->get(),
-            'user' => $user
+            'pregnancy_alerts_before' => $age_pregnancy ? PregnancyAlert::where('weeks', '>=', $age_pregnancy->age_when_join)->where('weeks', '<' , $age)->whereNotIn('id', $idStatuses->toArray())->get() : [],
+            'user' => $user,
+            'webTitle' => 'Pengingat Kehamilan'
         ]);
     }
 
     public function read($id) {
         $pregnancy = PregnancyAlert::find($id);
         
-        return view('pregnancy.read', compact('pregnancy'));
+        return view('pregnancy.read', ['pregnancy' => $pregnancy, 'webTitle' => "Pengingat Kehamilan Minggu ke $pregnancy->weeks"]);
     }
 
     public function done($id) {

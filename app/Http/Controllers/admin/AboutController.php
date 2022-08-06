@@ -8,27 +8,36 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function about() {
+    public function about()
+    {
         return view('admin.about.index', [
             'about'    => About::first()
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $request->validate([
-            'email'  => 'required',
+            'email' => 'required|email',
             'wa' => 'required',
-            'body'  => 'required'
+            'body' => 'required'
         ]);
 
-        $about = About::first();
-
-        $about->update([
-            'email'  => $request->email,
-            'whatsapp'  => $request->wa,
-            'body'  => $request->body
-        ]);
-
+        if(About::count() === 0) {
+            About::create([
+                'email'  => $request->email,
+                'whatsapp'  => $request->wa,
+                'body'  => $request->body
+            ]);
+        }else {
+            $about = About::all()->first();
+            $about->update([
+                'email'  => $request->email,
+                'whatsapp'  => $request->wa,
+                'body'  => $request->body
+            ]);
+        }
+        
         return back();
     }
 }

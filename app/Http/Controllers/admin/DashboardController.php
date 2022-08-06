@@ -19,6 +19,8 @@ class DashboardController extends Controller
         return $month;
     }
     public function index() {
+        $questionsGroup = Question::all()->groupBy('type')->toArray();
+
         return view('admin.dashboard', [
             'usersCount' => User::count(),
             'articlesCount' => Article::count(),
@@ -32,7 +34,10 @@ class DashboardController extends Controller
             ],
             'questionsCount' => Question::count(),
             'userJoin' => $this->valueToArray(User::select(DB::raw('count(id) as total'), DB::raw('MONTH(created_at) as month'))->groupBy('month')->get()),
-            'users' => User::latest()->with('age_pregnancy')->limit(5)->get()
+            'users' => User::latest()->with('age_pregnancy')->limit(5)->get(),
+            'abcdCount' => isset($questionsGroup["abcd"]) ? count($questionsGroup["abcd"]) : 0,
+            'numberQuestionCount' => isset($questionsGroup["1234"]) ? count($questionsGroup["1234"]) : 0,
+            'agreementCount' => isset($questionsGroup["agreement"]) ? count($questionsGroup["agreement"]) : 0,
         ]);
     }
 }
