@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\QuestionController as AdminQuestionController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MediaUploaderController;
 use App\Http\Controllers\PregnancyAlertController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ShortContentController;
@@ -95,9 +96,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         Route::prefix('list')->group(function() {
             Route::get('/', [AdminPregnancyAlertController::class, 'list'])->name('admin.pregnancy_alerts.list');
             Route::get('/create', [AdminPregnancyAlertController::class, 'create'])->name('admin.pregnancy_alerts.list.create');
-            Route::get('/store', [AdminPregnancyAlertController::class, 'store'])->name('admin.pregnancy_alerts.list.store');
+            Route::post('/store', [AdminPregnancyAlertController::class, 'store'])->name('admin.pregnancy_alerts.list.store');
             Route::get('/{pregnancy_alert:id}/edit', [AdminPregnancyAlertController::class, 'edit'])->name('admin.pregnancy_alerts.list.edit');
-            Route::get('/{pregnancy_alert:id}/update', [AdminPregnancyAlertController::class, 'update'])->name('admin.pregnancy_alerts.list.update');
+            Route::put('/{pregnancy_alert:id}/update', [AdminPregnancyAlertController::class, 'update'])->name('admin.pregnancy_alerts.list.update');
             Route::get('/{pregnancy_alert:id}/destroy', [AdminPregnancyAlertController::class, 'destroy'])->name('admin.pregnancy_alerts.list.destroy');
         });
     });
@@ -143,4 +144,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     });
 });
 
-Route::post('upload', [AdminArticleController::class, 'upload']);
+Route::post('upload', [MediaUploaderController::class, 'upload']);

@@ -9,7 +9,7 @@ class PregnancyAlert extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title", "content", "week"];
+    protected $fillable = ["title", "content", "weeks", "image"];
 
     public function pregnancy_statuses() {
         return $this->hasMany(PregnancyStatus::class);

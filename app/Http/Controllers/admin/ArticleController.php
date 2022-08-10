@@ -40,7 +40,7 @@ class ArticleController extends Controller
             'slug'  => $slug
         ]);
 
-        return redirect()->route('admin.articles')->with('successAlert', 'Mater berhasil ditambahkan');
+        return redirect()->route('admin.articles')->with('successAlert', 'Materi berhasil ditambahkan');
     }
 
     public function edit(Article $article) {
@@ -85,12 +85,6 @@ class ArticleController extends Controller
         ]);
 
         return redirect()->route('admin.articles');
-    }
-
-    public function upload(Request $request) {
-        $fileName = $request->file('file')->getClientOriginalName();
-        $path = $request->file('file')->storeAs('/uploads/articles/body/', $fileName, 'public');
-        return response()->json(['location' => "/storage/$path"]);
     }
     
     public function destroy(Article $article) {

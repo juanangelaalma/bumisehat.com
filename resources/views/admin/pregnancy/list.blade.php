@@ -1,7 +1,10 @@
 <x-app-layout>
-    <x-slot name="header">
-        {{ __('List Pengingat') }}
-    </x-slot>
+  <x-slot name="header">
+    <div class="flex items-center justify-between nowrap w-full">
+        {{ __('Daftar Pengingat') }}
+        <x-link href="{{ route('admin.pregnancy_alerts.list.create') }}" class="px-10"><span class="font-bold">{{ __('+ ') }}</span> Buat pengingat baru</x-link>
+      </div>
+  </x-slot>
 
     <div class="p-4 bg-white rounded-lg shadow-xs">
       <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
