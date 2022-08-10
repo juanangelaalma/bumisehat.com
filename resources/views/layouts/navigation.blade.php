@@ -29,7 +29,7 @@
                   @click="togglePagesMenu"
                   aria-haspopup="true"
                 >
-                    <x-nav-link :active="request()->routeIs('admin.pregnancy_alerts') || request()->routeIs('admin.pregnancy_alerts.list')">
+                    <x-nav-link :active="request()->routeIs('admin.pregnancy_alerts') || request()->routeIs('admin.pregnancy_alerts.list') || request()->routeIs('admin.pregnancy_alerts.list.edit') || request()->routeIs('admin.pregnancy_alerts.list.create')">
                       <x-slot name="icon">
                           <img src="{{ asset('images/alert_black.png') }}" class="w-5 h-auto" />
                       </x-slot>
