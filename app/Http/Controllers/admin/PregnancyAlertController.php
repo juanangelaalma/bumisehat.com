@@ -24,7 +24,7 @@ class PregnancyAlertController extends Controller
     public function index()
     {
         $users = User::with('age_pregnancy', 'pregnancy_statuses')->get();
-        $alerts = PregnancyAlert::all();
+        $alerts = PregnancyAlert::orderBy('weeks', 'asc')->get();
         return view('admin.pregnancy.index', compact('users', 'alerts'));
     }
     
