@@ -35,14 +35,66 @@
                 </x-nav-link>
             </li>
 
-            <li class="relative px-6 py-3">
+            {{-- <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('admin.pregnancy_alerts') }}" :active="request()->routeIs('admin.pregnancy_alerts')">
                     <x-slot name="icon">
                         <img src="{{ asset('images/alert_black.png') }}" class="w-5 h-auto" />
                     </x-slot>
                     {{ __('Pengingat kehamilan') }}
                 </x-nav-link>
-            </li>
+            </li> --}}
+
+            <li class="relative px-6 py-3">
+                <button
+                  class="inline-flex items-center outline-none justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  @click="togglePagesMenu"
+                  aria-haspopup="true"
+                >
+                    <x-nav-link :active="request()->routeIs('admin.pregnancy_alerts') || request()->routeIs('admin.pregnancy_alerts.list') || request()->routeIs('admin.pregnancy_alerts.list.edit') || request()->routeIs('admin.pregnancy_alerts.list.create')">
+                      <x-slot name="icon">
+                          <img src="{{ asset('images/alert_black.png') }}" class="w-5 h-auto" />
+                      </x-slot>
+                      {{ __('Pengingat kehamilan') }}
+                  </x-nav-link>
+                  <svg
+                    class="w-4 h-4"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <template x-if="isPagesMenuOpen">
+                  <ul
+                    x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0"
+                    x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl"
+                    x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                    aria-label="submenu"
+                  >
+                    <li
+                      class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                    >
+                      <a class="w-full" href="{{ route('admin.pregnancy_alerts') }}">Monitoring User</a>
+                    </li>
+                    <li
+                      class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                    >
+                      <a class="w-full" href="{{ route('admin.pregnancy_alerts.list') }}">
+                        Daftar pengingat
+                      </a>
+                    </li>
+                  </ul>
+                </template>
+              </li>
 
             <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('admin.articles') }}" :active="request()->routeIs('admin.articles') || request()->routeIs('admin.articles.create') || request()->routeIs('admin.articles.edit')">
