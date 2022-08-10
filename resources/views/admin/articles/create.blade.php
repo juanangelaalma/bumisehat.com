@@ -53,7 +53,7 @@
                 </form>
             </div>
         </div>
-        </main>
+    </div>
         <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
         <script src="{{ asset('js/tinymce/config.js') }}"></script>
 </x-app-layout>

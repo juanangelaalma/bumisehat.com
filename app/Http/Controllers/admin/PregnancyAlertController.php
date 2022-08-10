@@ -24,4 +24,31 @@ class PregnancyAlertController extends Controller
         $alerts = PregnancyAlert::all();
         return view('admin.pregnancy.index', compact('users', 'alerts'));
     }
+
+    public function list() {
+        $pregnancy_alerts = PregnancyAlert::orderBy('weeks', 'ASC')->get();
+
+        $pregnancy_alerts[0]->image = "index.jpg";
+        return view('admin.pregnancy.list', compact('pregnancy_alerts'));
+    }
+
+    public function create() {
+        
+    }
+
+    public function store() {
+
+    }
+
+    public function edit(PregnancyAlert $pregnancyAlert) {
+
+    }
+
+    public function update(PregnancyAlert $pregnancyAlert) {
+
+    }
+
+    public function destroy(PregnancyAlert $pregnancyAlert) {
+
+    }
 }
