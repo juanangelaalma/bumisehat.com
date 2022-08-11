@@ -42,7 +42,7 @@ class PregnancyAlertController extends Controller
         $request->validate([
             'title' => 'required|string',
             'body' => 'required|string',
-            'image' => 'mimes:png,jpg,jpeg,webp|max:2048',
+            'image' => 'mimes:png,jpg,jpeg,webp',
             'weeks' => 'required|numeric'
         ]);  
         if($request->image) {
@@ -80,7 +80,7 @@ class PregnancyAlertController extends Controller
 
         if($request->file('image')) {
             $request->validate([
-                'image'  => 'required|mimes:png,jpg,jpeg,webp|max:2048',
+                'image'  => 'required|mimes:png,jpg,jpeg,webp',
             ]);
 
             Storage::delete('/uploads/pregnancy_alerts/thumbnails/' . $pregnancyAlert->image);

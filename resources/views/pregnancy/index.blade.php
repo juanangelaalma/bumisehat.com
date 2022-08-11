@@ -24,6 +24,11 @@
                             </div>
                         </div>
                         <h3 class="text-lg leading-10 md:text-user-md font-semibold text-dark">{{ $item->title }}</h3>
+                        @if ($item->image)
+                        <div class="w-full h-72 md:h-96 overflow-hidden">
+                            <img class="w-full h-full object-cover object-center" src="{{ asset('storage/uploads/pregnancy_alerts/thumbnails/' . $item->image) }}" alt="">
+                        </div>
+                        @endif
                         <p class="mb-4 text-base font-normal text-dark-gray w-full">{{ strip_tags(substr($item->content, 0, 250), null) }} ...<a href="{{ route('pregnancy.read', $item->id) }}" class="text-primary-index font-semibold">Selengkapnya</a> </p>
                         @if (!$item->pregnancy_statuses()->where(['user_id' => $user->id, 'pregnancy_alert_id' => $item->id])->first())
                             <x-btn-todo id="{{$item->id}}"></x-btn-todo>
@@ -31,13 +36,18 @@
                     </li>
                     @endforeach
                     @foreach ($pregnancy_alerts as $item)
-                    <li class="mb-10 ml-4 space-y-3">
+                    <li class="mb-10 ml-4 h-auto space-y-3">
                         <div
                             class="absolute w-[55px] h-[55px] flex justify-center items-center bg-[#ffb991] rounded-full -left-7 border border-white">
                             <img class="w-[29px] h-[29px]" src="{{ asset('svg/date.svg') }}" alt="">
                         </div>
                         <time class="mb-1 text-base font-normal text-dark-gray">Minggu {{ $item->weeks }}</time>
                         <h3 class="text-lg leading-10 md:text-user-md font-semibold text-dark">{{ $item->title }}</h3>
+                        @if ($item->image)
+                        <div class="w-full h-72 md:h-96 overflow-hidden">
+                            <img class="w-full h-full object-cover object-center" src="{{ asset('storage/uploads/pregnancy_alerts/thumbnails/' . $item->image) }}" alt="">
+                        </div>
+                        @endif
                         <p class="mb-4 text-base font-normal text-dark-gray w-full">{{ strip_tags(substr($item->content, 0, 250), null) }} ...<a href="{{ route('pregnancy.read', $item->id) }}" class="text-primary-index font-semibold">Selengkapnya</a> </p>
                         @if (!$item->pregnancy_statuses()->where(['user_id' => $user->id, 'pregnancy_alert_id' => $item->id])->first())
                             <x-btn-todo id="{{$item->id}}"></x-btn-todo>
