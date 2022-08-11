@@ -185,7 +185,7 @@
                 </div>
                 <br>
                 <p>
-                    Hai <b>{{ $user->name }}</b> <br>
+                    Hai <b>Juan Angela Alma</b> <br>
                 </p>
                 <br>
                 <h1>
@@ -215,19 +215,19 @@
 
                     </div>
                     <div class="flex flex-col mb-2">
-                        <span class="minggu">Minggu {{ $user['age_week'] }}</span>
-                        <h4 class="judul">{{ $alert['title'] }}</h4>
+                        <span class="minggu">Minggu 1</span>
+                        <h4 class="judul">Title ini adalah</h4>
                         <div class="image__wrapper">
-                            <img class="image__pregnancy" src="{{ asset('storage/uploads/pregnancy_alerts/thumbnails/' . $alert['image']) }}" alt="">
+                            <img class="image__pregnancy" src="{{ asset('storage/uploads/pregnancy_alerts/thumbnails/' .'minggu-10-1660180448.jpg') }}" alt="">
                         </div>
                         <p class="content">
-                            {{ strip_tags(substr($alert['content'], 0, 250), null) }} ...
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam dolorum esse a quaerat maiores maxime nisi expedita adipisci, eum in ipsam repellendus est veritatis nesciunt animi inventore obcaecati, ducimus incidunt? ...
                         </p>
                     </div>
                 </div>
                 <center>
                     <span class="selengkapnya">Selengkapnya</span>
-                    <a href="{{ route('pregnancy.read', $alert['id']) }}" class="btn-primary"><b>KLIK DISINI</b></a>
+                    <a href="{{ route('pregnancy.index') }}" class="btn-primary"><b>KLIK DISINI</b></a>
                 </center>
                 <br>
                 <br>

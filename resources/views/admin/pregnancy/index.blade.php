@@ -31,9 +31,9 @@
                     </div>
                     <div class="flex flex-col space-y-1">
                         {{-- umur berdasarkan minggu --}}
-                        @if ($agePregnancy <= env('MAX_PREGNANCY_AGE'))
+                        @if ($agePregnancy <= env('MAX_PREGNANCY_AGE', 42))
                             <h6 class="text-xs font-semibold text-dark">Minggu {{ $agePregnancy }}<span
-                                    class="text-dark-gray">/{{ env('MAX_PREGNANCY_AGE') }}</span>
+                                    class="text-dark-gray">/{{ env('MAX_PREGNANCY_AGE', 42) }}</span>
                             </h6>
                         @else
                         <h6 class="text-xs font-semibold text-dark">Telah usai</h6>
@@ -42,7 +42,7 @@
                             <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
                                 {{-- progress bar --}}
                                 <div class="bg-primary-index h-1.5 rounded-full"
-                                    style="width: {{ $agePregnancy <= env('MAX_PREGNANCY_AGE') ? (($agePregnancy / env('MAX_PREGNANCY_AGE')) * 100) : 100 }}%">
+                                    style="width: {{ $agePregnancy <= env('MAX_PREGNANCY_AGE', 42) ? (($agePregnancy / env('MAX_PREGNANCY_AGE', 42)) * 100) : 100 }}%">
                                 </div>
                             </div>
                         </div>

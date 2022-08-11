@@ -43,7 +43,7 @@ class PregnancyAlertCommand extends Command
      */
     public function handle()
     {
-        $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE') * 7);
+        $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE', 42) * 7);
 
         $users = User::with('age_pregnancy')->whereHas('age_pregnancy', function(Builder $query) use ($maxPregnancyAge) {
             $query->where('pregnancy_start', '>=', $maxPregnancyAge->subDays(1));

@@ -33,14 +33,14 @@ function timestamp_to_tanggal($timestap)
  * @return weeks_of_age_pregnancy
  */
 function get_age_of_pregnancy($pregnancy_start) {
-  return intval(floor(Carbon::now()->diffInDays($pregnancy_start) / 7));
+  if(env('app.debug')) {
+    $res = Carbon::now()->diffInMinutes($pregnancy_start);
+    $result = intval(strval(floor($res))[strlen($res)-1]);
+  }else {
+    $result = intval(floor(Carbon::now()->diffInDays($pregnancy_start) / 7));
+  }
+  return $result;
 }
-
-// testing every minute
-// function get_age_of_pregnancy($pregnancy_start) {
-//   $result = Carbon::now()->diffInMinutes($pregnancy_start);
-//   return intval(strval(floor($result))[strlen($result)-1]);
-// }
 
 /**
  * If the pregnancy_alert_id in the statuses array is equal to the pregnancy_alert_id passed in, return
