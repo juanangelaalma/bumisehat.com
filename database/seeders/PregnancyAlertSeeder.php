@@ -17,9 +17,10 @@ class PregnancyAlertSeeder extends Seeder
     {
         for($i=1; $i<=env('MAX_PREGNANCY_AGE', 42); $i++) {
             DB::table('pregnancy_alerts')->insert([
-                'title'    => "Minggu  $i",
+                'title'    => "Judul Pengingat Minggu ke $i",
                 'content'  => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam pariatur quisquam libero corporis autem sed nam, ipsum illo quaerat aliquid velit, culpa placeat porro? Doloremque nesciunt reprehenderit error molestiae quaerat, placeat quae! Ea illum itaque, placeat cumque beatae distinctio minus dignissimos accusamus, qui, autem alias. Itaque commodi tenetur a, corporis sunt dolores ad? Est provident explicabo aut doloremque quisquam, at quos vero. Illo, repellat molestiae adipisci quos minima magnam, cupiditate id laborum pariatur repudiandae aspernatur nobis ipsum quod, consectetur obcaecati natus. Provident aut magni reiciendis maiores dolorum quis qui distinctio dolorem eaque aperiam reprehenderit, ullam corporis nisi iure? Mollitia, sit.',
-                'weeks'    => $i
+                'weeks'    => $i,
+                'image'    => 'mengenal-makna-kesehatab.png'
             ]);
         }
     }

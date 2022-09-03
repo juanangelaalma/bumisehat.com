@@ -23,7 +23,6 @@
 
                 <form method="POST" action="{{ route('register') }}">
                 @csrf
-
                     <div class="mt-4">
                         <x-label-user for="name" :value="__('Nama Lengkap')"/>
                         <x-input-user type="text"
@@ -34,6 +33,16 @@
                                  
                                  placeholder="Masukkan nama lengkap anda"
                                  autofocus/>
+                    </div>
+
+                    <div class="mt-4">
+                        <x-label-user for="phone" :value="__('Nomor HP')"/>
+                        <x-input-user name="phone"
+                                 type="tel"
+                                 class="block w-full"
+                                 placeholder="083111xxxxxx"
+                                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                 value="{{ old('phone') }}"/>
                     </div>
 
                     <div class="mt-4">
@@ -73,15 +82,6 @@
                                  value="{{ old('puskesmas') }}"
                                  />
                     </div>
-
-                    {{-- <div class="mt-4">
-                        <x-label-user id="password_confirmation" :value="__('Konfirmasi Password')"/>
-                        <x-input-user type="password"
-                                 name="password_confirmation"
-                                 class="block w-full"
-                                 placeholder="Masukkan konfirmasi password"
-                                 />
-                    </div> --}}
 
                     <div class="mt-4">
                         <x-button-user class="block w-full">
