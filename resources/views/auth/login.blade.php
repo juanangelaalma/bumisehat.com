@@ -24,8 +24,8 @@
 
                     <!-- Input[ype="email"] -->
                     <div class="mt-4">
-                        <x-label-user :value="__('Email')" />
-                        <x-input-user type="email" id="email" name="email" value="{{ old('email') }}"
+                        <x-label-user :value="__('Email atau Nomor HP')" />
+                        <x-input-user type="text" id="email" name="email" value="{{ old('email') }}"
                             class="block w-full" required autofocus />
                     </div>
 

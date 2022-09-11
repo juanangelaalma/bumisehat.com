@@ -43,7 +43,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/test_email', function() {
-    $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE') * 7);
+    $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE', 42) * 7);
     // dd($maxPregnancyAge);
     dd(get_age_of_pregnancy(User::with('age_pregnancy')->whereHas('age_pregnancy', function(Builder $query) use ($maxPregnancyAge) {
         $query->where('pregnancy_start', '>=', $maxPregnancyAge->subDays(1));

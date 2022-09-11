@@ -6,7 +6,12 @@
 @endphp
 <div class="bg-white py-14">
   <x-title-header-user title="{{ $pregnancy->title }}"></x-title-header-user>
-  <div class="text-dark text-base px-3 md:px-24 py-5">
+  @if ($pregnancy->image)
+  <div class="px-3 md:px-24 h-[400px] my-5">
+    <img class="w-full h-full rounded-lg object-cover object-center" src="{{ asset('storage/uploads/pregnancy_alerts/thumbnails/' . $pregnancy->image) }}" alt="">
+  </div>
+  @endif
+  <div class="text-dark text-base px-3 md:px-24">
     {!! $pregnancy->content !!}
   </div>
 </div>

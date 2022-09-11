@@ -24,7 +24,7 @@ class PregnancyAlertController extends Controller
     public function index()
     {
         $users = User::with('age_pregnancy', 'pregnancy_statuses')->get();
-        $alerts = PregnancyAlert::all();
+        $alerts = PregnancyAlert::orderBy('weeks', 'asc')->get();
         return view('admin.pregnancy.index', compact('users', 'alerts'));
     }
     
@@ -42,7 +42,7 @@ class PregnancyAlertController extends Controller
         $request->validate([
             'title' => 'required|string',
             'body' => 'required|string',
-            'image' => 'mimes:png,jpg,jpeg',
+            'image' => 'mimes:png,jpg,jpeg,webp',
             'weeks' => 'required|numeric'
         ]);  
         if($request->image) {
@@ -68,11 +68,43 @@ class PregnancyAlertController extends Controller
     }
 
     public function edit(PregnancyAlert $pregnancyAlert) {
-
+        return view('admin.pregnancy.edit', compact('pregnancyAlert'));
     }
 
-    public function update(PregnancyAlert $pregnancyAlert) {
+    public function update(Request $request, PregnancyAlert $pregnancyAlert) {
+        $request->validate([
+            'title'  => 'required',
+            'body'   => 'required',
+            'weeks'  => 'required|numeric'
+        ]);
 
+        if($request->file('image')) {
+            $request->validate([
+                'image'  => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+
+            Storage::delete('/uploads/pregnancy_alerts/thumbnails/' . $pregnancyAlert->image);
+
+            $slug = Str::slug($request->title) . '-' . time();
+            $fileName = $slug . "." . $request->file('image')->extension();
+
+            $request->file('image')->storeAs('/uploads/pregnancy_alerts/thumbnails/', $fileName, 'public');
+
+            $pregnancyAlert->update([
+                'title'    => $request->title,
+                'content'  => $request->body,
+                'image'    => $fileName,
+                'weeks'    => $request->weeks
+            ]);
+        }
+
+        $pregnancyAlert->update([
+            'title'     => $request->title,
+            'content'   => $request->body,
+            'weeks'     => $request->weeks
+        ]);
+
+        return redirect()->route('admin.pregnancy_alerts.list');
     }
 
     public function destroy(PregnancyAlert $pregnancyAlert) {

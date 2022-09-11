@@ -15,8 +15,9 @@
                   <div class="bg-primary-dark bg-opacity-70 self-center p-8 md:p-10 rounded-lg">
                       <h6 class="text-user-xl md:tex-user-xl text-white">{{ $true_point }}/{{ $true_point + $false_point }}</h6>
                   </div>
-                  <div class="w-full md:w-1/2">
-                      <x-pie-chart-answer :falseAnswer=$false_answer :trueAnswer=$true_answer></x-pie-chart-answer></div>
+                  {{-- <div class="w-full md:w-1/2">
+                      <x-pie-chart-answer :falseAnswer=$false_answer :trueAnswer=$true_answer></x-pie-chart-answer>
+                  </div> --}}
               </div>
               @else  
                   <x-form-questions route="evaluation.submit" :questions=$questions></x-form-questions>
