@@ -145,3 +145,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 });
 
 Route::post('upload', [MediaUploaderController::class, 'upload']);
+
+Route::view('kalkulator-bmi', 'bmi.kalkulator')->name('kalkulator-bmi');

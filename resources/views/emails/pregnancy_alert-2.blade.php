@@ -192,7 +192,7 @@
                     Udah cek kehamilanmu belum? 😁
                 </h1>
                 <p class="top">
-                    Nih kami sajikan pengingat kehamilan, hanya untuk kamu
+                    Nih kami sajikan Pengingat Kesehatan, hanya untuk kamu
                 </p>
                 <br>
                 <div class="flex">

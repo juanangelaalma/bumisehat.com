@@ -3,7 +3,7 @@
 @section('content')
     <x-carousel></x-carousel>
     <div class="py-10">
-        <x-title-section title="SELAMAT DATANG DI BUMIL SEHAT" desc="kami menawarkan beberapa fitur yang bisa anda gunakan"
+        <x-title-section title="SELAMAT DATANG DI WANITA SUBUR" desc="kami menawarkan beberapa fitur yang bisa anda gunakan"
             line={{ true }}></x-title-section>
         <div class="px-4 py-10 md:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <a href="{{ route('quiz.index') }}"
@@ -27,7 +27,7 @@
                         <img src="/svg/alert-orange.svg">
                     </div>
 
-                    <h4 class="mb-4 text-xl md:text-lg text-dark font-bold">Pengingat kehamilan</h4>
+                    <h4 class="mb-4 text-xl md:text-lg text-dark font-bold">Pengingat Kesehatan</h4>
                     <p class="text-center text-base text-dark md:text-base font-light">Lorem ipsum dolor sit, amet
                         consectetur adipisicing elit. Dignissimos quaerat nulla debitis tenetur voluptatibus consequatur
                         sapiente ratione vel itaque fugiat.</p>

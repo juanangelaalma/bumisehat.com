@@ -66,6 +66,11 @@
                        class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'home' ? ' md:text-secondary bg-secondary' : '' }}"
                        aria-current="page">Beranda</a>
                 </li>
+                <li>
+                    <a href="{{ route('kalkulator-bmi') }}"
+                       class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'kalkulator-bmi' ? ' md:text-secondary bg-secondary' : '' }}"
+                       aria-current="page">Kalkulator BMI</a>
+                </li>
                 @auth
                     <li>
                         <a href="{{ route('pregnancy.index') }}"

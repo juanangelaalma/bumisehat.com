@@ -24,14 +24,14 @@ class PregnancyAlertController extends Controller
             'pregnancy_alerts' => PregnancyAlert::where('weeks', $age)->get(),
             'pregnancy_alerts_before' => $age_pregnancy ? PregnancyAlert::where('weeks', '>=', $age_pregnancy->age_when_join)->where('weeks', '<' , $age)->whereNotIn('id', $idStatuses->toArray())->get() : [],
             'user' => $user,
-            'webTitle' => 'Pengingat Kehamilan'
+            'webTitle' => 'Pengingat Kesehatan'
         ]);
     }
 
     public function read($id) {
         $pregnancy = PregnancyAlert::find($id);
         
-        return view('pregnancy.read', ['pregnancy' => $pregnancy, 'webTitle' => "Pengingat Kehamilan Minggu ke $pregnancy->weeks"]);
+        return view('pregnancy.read', ['pregnancy' => $pregnancy, 'webTitle' => "Pengingat Kesehatan Minggu ke $pregnancy->weeks"]);
     }
 
     public function done($id) {
