@@ -30,7 +30,7 @@ class PregnancyAlertMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Pengingat Kehamilan ' . $this->user->name)->view('emails.pregnancy_alert', [
+        return $this->subject('Pengingat Kesehatan ' . $this->user->name)->view('emails.pregnancy_alert', [
             'user'  => $this->user,
             'alert' => $this->alert
         ]);

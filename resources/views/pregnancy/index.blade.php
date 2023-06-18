@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="bg-white py-14 h-screen relative">
-        <x-title-header-user title="Pengingat Kehamilan">
+        <x-title-header-user title="Pengingat Kesehatan">
         </x-title-header-user>
 
 

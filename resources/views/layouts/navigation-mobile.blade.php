@@ -40,7 +40,7 @@
                     <x-slot name="icon">
                         <img src="{{ asset('images/alert_black.png') }}" class="w-5 h-auto" />
                     </x-slot>
-                    {{ __('Pengingat kehamilan') }}
+                    {{ __('Pengingat Kesehatan') }}
                 </x-nav-link>
             </li> --}}
 
@@ -54,7 +54,7 @@
                       <x-slot name="icon">
                           <img src="{{ asset('images/alert_black.png') }}" class="w-5 h-auto" />
                       </x-slot>
-                      {{ __('Pengingat kehamilan') }}
+                      {{ __('Pengingat Kesehatan') }}
                   </x-nav-link>
                   <svg
                     class="w-4 h-4"

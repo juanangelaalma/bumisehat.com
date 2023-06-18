@@ -33,7 +33,7 @@ class ContactEmail extends Mailable
     public function build()
     {
         return $this->from($this->fromAddress)->html("<h3><b>Dari:</b> $this->fromAddress </h3><div>$this->messageFromAddress</div>", function($message) {
-            $message->subject('Kontak Website Bumil Sehat');
+            $message->subject('Kontak Website Wanita Subur');
         });
     }
 }
