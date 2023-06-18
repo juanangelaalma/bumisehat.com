@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="bg-white px-4 md:px-24 py-14 flex flex-wrap">
-        <div class="w-full px-0 md:px-2 md:w-[70%] mb-4">
+        <div class="w-full px-0 md:px-2 md:w-[70%] mb-4 md:pr-12">
             <div class="flex flex-col">
                 <span
                     class="px-7 mb-5 py-1 font-semibold bg-primary-index self-start rounded-full text-white">{{ isset($is_short) ? 'Short Content' : 'Materi' }}</span>
-                <h1 class="font-semibold text-lg md:text-user-header mb-5">{{ $article->title }}</h1>
+                <h1 class="font-semibold text-[32px] md:text-user-header mb-5">{{ $article->title }}</h1>
                 <div class="flex items-center gap-3 text-dark font-normal">
                     <p>{{ timestamp_to_tanggal($article->created_at) }} </p>
                     <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,13 +26,15 @@
                         alt="{{ $article->title }}">
                 @endif
             </div>
-            <div class="text-dark text-sm md:text-base py-3">
-                {!! $article->body !!}
+            <div class="text-dark text-sm w-full md:text-base py-3">
+                <div class="prose-lg min-w-full prose-headings:font-semibold prose-li:list-disc">
+                    {!! $article->body !!}
+                </div>
             </div>
         </div>
         <div class="self-start pt-3 px-0 md:px-2 w-full md:w-[30%]  sticky top-0 left-0">
             <h6 class="w-full text-base text-dark font-semibold mb-4">
-                {{ isset($is_short) ? 'Short content lainnya' : 'Materi terbaru' }}</h6>
+                {{ isset($is_short) ? 'Short content lainnya' : 'Materi lainnya' }}</h6>
             <div class="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4">
                 @foreach ($new_articles as $item)
                     @if (isset($is_short))

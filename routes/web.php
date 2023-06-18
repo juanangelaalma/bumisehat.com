@@ -35,24 +35,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/testing', function() {
-    dd(get_age_of_pregnancy('2021-09-30'));
-});
+// Route::get('/testing', function() {
+//     dd(get_age_of_pregnancy('2021-09-30'));
+// });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/test_email', function() {
-    $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE', 42) * 7);
-    // dd($maxPregnancyAge);
-    dd(get_age_of_pregnancy(User::with('age_pregnancy')->whereHas('age_pregnancy', function(Builder $query) use ($maxPregnancyAge) {
-        $query->where('pregnancy_start', '>=', $maxPregnancyAge->subDays(1));
-    })->get()[0]->age_pregnancy->pregnancy_start));
-    return view('emails.pregnancy_alert', [
-        'user' => User::all()->first(),
-        'alert' => PregnancyAlert::all()->first()
-    ]);
-});
+// Route::get('/test_email', function() {
+//     $maxPregnancyAge = Carbon::now()->subDays(env('MAX_PREGNANCY_AGE', 42) * 7);
+//     // dd($maxPregnancyAge);
+//     dd(get_age_of_pregnancy(User::with('age_pregnancy')->whereHas('age_pregnancy', function(Builder $query) use ($maxPregnancyAge) {
+//         $query->where('pregnancy_start', '>=', $maxPregnancyAge->subDays(1));
+//     })->get()[0]->age_pregnancy->pregnancy_start));
+//     return view('emails.pregnancy_alert', [
+//         'user' => User::all()->first(),
+//         'alert' => PregnancyAlert::all()->first()
+//     ]);
+// });
 
 require __DIR__ . '/auth.php';
 
@@ -61,32 +61,32 @@ Route::get('tentang', [AboutController::class, 'about'])->name('about.index');
 Route::get('kontak', [AboutController::class, 'contact'])->name('contact.index');
 
 
-Route::prefix('materi')->middleware('filledout.quiz')->group(function () {
-    Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
+Route::prefix('materi')->group(function () {
+    // Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
     Route::get('/{article:slug}', [ArticleController::class, 'read'])->name('articles.read');
 });
 
-Route::prefix('pengingat-kehamilan')->middleware('auth')->group(function () {
-    Route::get('/', [PregnancyAlertController::class, 'index'])->name('pregnancy.index');
-    Route::get('/{id}', [PregnancyAlertController::class, 'read'])->name('pregnancy.read');
-    Route::post('/{id}/done', [PregnancyAlertController::class, 'done'])->name('pregnancy.done');
-});
+// Route::prefix('pengingat-kehamilan')->middleware('auth')->group(function () {
+//     Route::get('/', [PregnancyAlertController::class, 'index'])->name('pregnancy.index');
+//     Route::get('/{id}', [PregnancyAlertController::class, 'read'])->name('pregnancy.read');
+//     Route::post('/{id}/done', [PregnancyAlertController::class, 'done'])->name('pregnancy.done');
+// });
 
 Route::get('short_contents/{id}/read', [ShortContentController::class, 'read'])->name('short_content.read');
 
 Route::get('email', [AboutController::class, 'sendEmail'])->name('send.email');
 
-Route::prefix('evaluasi')->middleware('auth')->group(function () {
-    Route::get('/', [QuestionController::class, 'evaluation'])->name('evaluation.index');
-    Route::post('/submit', [QuestionController::class, 'evaluation_submit'])->name('evaluation.submit');
-});
+// Route::prefix('evaluasi')->middleware('auth')->group(function () {
+//     Route::get('/', [QuestionController::class, 'evaluation'])->name('evaluation.index');
+//     Route::post('/submit', [QuestionController::class, 'evaluation_submit'])->name('evaluation.submit');
+// });
 
-Route::prefix('quiz')->middleware('auth')->group(function () {
-    Route::get('/', [QuestionController::class, 'quiz'])->name('quiz.index');
-    Route::post('/submit', [QuestionController::class, 'quiz_submit'])->name('quiz.submit');
-});
+// Route::prefix('quiz')->middleware('auth')->group(function () {
+//     Route::get('/', [QuestionController::class, 'quiz'])->name('quiz.index');
+//     Route::post('/submit', [QuestionController::class, 'quiz_submit'])->name('quiz.submit');
+// });
 
-Route::post('/pregnancy_start/submit', [UserController::class, 'setPregnancyStart'])->name('pregnancy_start.submit');
+// Route::post('/pregnancy_start/submit', [UserController::class, 'setPregnancyStart'])->name('pregnancy_start.submit');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

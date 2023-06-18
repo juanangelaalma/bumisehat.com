@@ -1,4 +1,5 @@
-<nav class="bg-primary-index w-full px-2 py-4 md:px-24 sm:px-7 transition-all">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<nav class="bg-primary-index w-full px-2 py-4 md:px-24 sm:px-7 transition-all z-30">
     <div class="container flex flex-wrap md:flex-nowrap justify-between items-center mx-auto">
         <a href="/" class="flex md:hidden lg:flex items-center">
             <img src="{{ asset('images/brand.png') }}" class="mr-3 h-8 sm:h-9" alt="Flowbite Logo">
@@ -66,34 +67,49 @@
                        class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'home' ? ' md:text-secondary bg-secondary' : '' }}"
                        aria-current="page">Beranda</a>
                 </li>
+                @auth
+                <x-dropdown-menu title="Stunting">
+                    <x-dropdown-menu-child label="Apa itu stunting?" href="{{ route('articles.read', 'tentang-stunting') }}" />
+                    <x-dropdown-menu-child label="Gejala stunting" href="{{ route('articles.read', 'tentang-stunting') }}" />
+                    <x-dropdown-menu-child label="Penyebab stunting" href="{{ route('articles.read', 'tentang-stunting') }}" />
+                </x-dropdown-menu>
+                <x-dropdown-menu title="Pencegahan Stunting">
+                    <x-dropdown-menu-child label="Untuk Ibu Muda" href="{{ route('articles.read', 'pencegahan-stunting-untuk-ibu-muda') }}" />
+                    <x-dropdown-menu-child label="Untuk Remaja Putri" href="{{ route('articles.read', 'pencegahan-stunting-untuk-remaja-putri') }}" />
+                    <x-dropdown-menu-child label="Untuk Keluarga" href="{{ route('articles.read', 'pencegahan-stunting-untuk-keluarga') }}" />
+                </x-dropdown-menu>
+                <li>
+                    <a href="{{ route('articles.read', "bagaimana-pedoman-gizi-seimbang-di-indonesia") }}"
+                       class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'kalkulator-bmi' ? ' md:text-secondary bg-secondary' : '' }}"
+                       aria-current="page">Nutrisi yang Seimbang</a>
+                </li>
                 <li>
                     <a href="{{ route('kalkulator-bmi') }}"
                        class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'kalkulator-bmi' ? ' md:text-secondary bg-secondary' : '' }}"
                        aria-current="page">Kalkulator BMI</a>
                 </li>
-                @auth
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('pregnancy.index') }}"
                            class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'pregnancy' ? ' md:text-secondary bg-secondary' : '' }}">Pengingat
                             Kehamilan</a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a href="{{ route('quiz.index') }}"
                            class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'quiz' ? ' md:text-secondary bg-secondary' : '' }}">Quiz</a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a href="{{ route('evaluation.index') }}"
                            class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'evaluation' ? ' md:text-secondary bg-secondary' : '' }}">Evaluasi</a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a href="{{ route('articles.index') }}"
                            class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'articles' ? ' md:text-secondary bg-secondary' : '' }}">Materi</a>
-                    </li>
+                    </li> --}}
                 @endauth
-                <li>
+                {{-- <li>
                     <a href="{{ route('about.index') }}"
                        class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'about' ? ' md:text-secondary bg-secondary' : '' }}">Tentang</a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ route('contact.index') }}"
                        class="block text-base text-white font-normal py-3 md:py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0{{ $active == 'contact' ? ' md:text-secondary bg-secondary' : '' }}">Hubungi
